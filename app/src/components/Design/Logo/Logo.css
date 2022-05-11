@@ -1,0 +1,10 @@
+.logo a {
+  color: #f6a800;
+  text-decoration: none;
+  font-style: italic;
+  font-weight: 700;
+  cursor: pointer;
+  padding-left: 1rem;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
