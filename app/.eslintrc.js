@@ -19,6 +19,7 @@ module.exports = {
     'react',
   ],
   rules: {
+    'react/jsx-props-no-spreading': 0,
     'comma-dangle': 0,
     'react/jsx-uses-vars': 1,
     'react/display-name': 1,

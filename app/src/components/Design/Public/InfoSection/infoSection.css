@@ -1,0 +1,48 @@
+.section {
+  width: 100%;
+  height: 100%;
+  padding: 4rem 0rem;
+}
+
+.infoSection {
+  padding: 3rem calc((100vw - 1300px) / 2);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 800px;
+}
+
+.columnLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  line-height: 1.4;
+  padding: 1rem 2rem;
+}
+
+.buttons {
+  display: flex;
+
+}
+
+.columnLeft h1 {
+  margin-bottom: 1rem;
+  font-size: clamp(1.rem, 6vw, 2rem);
+}
+
+.columnLeft p {
+  margin-bottom: 2rem;
+}
+
+.columnRight {
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.columnRight img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
