@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { IoMdArrowRoundForward } from 'react-icons/io';
 import { IoArrowForward, IoArrowBack } from 'react-icons/io5';
+import Anchor from '../../../Anchor/Anchor';
 
 import Button from '../../../Button/Button';
 import { SliderData } from './data/ImageSlider';
@@ -27,13 +28,13 @@ function Slider() {
             <div className="mainContent">
               <h1>{slide.title}</h1>
               <p>{slide.prijs}</p>
-              <Button
+              <Anchor
                 color="primary"
-                onClick={slide.path}
+                href={slide.path}
               >
                 {slide.label}
                 <IoMdArrowRoundForward className="arrowDetails" />
-              </Button>
+              </Anchor>
             </div>
           </div>
           )}

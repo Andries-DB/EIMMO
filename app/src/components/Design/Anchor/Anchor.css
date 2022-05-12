@@ -1,0 +1,32 @@
+.a-primary {
+  padding: 1rem 1.4rem;
+  border: none;
+  background: #f6a800;
+  color: white;
+  border-radius: 1rem;
+  transition: .2s ease;
+  max-width: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  text-decoration: none;
+  border: 1px solid #f6a800;
+  font-weight: 700;
+}
+
+.a-primary:hover {
+  color: #f6a800;
+  background: transparent;
+  cursor: pointer;
+  border: 1px solid #f6a800;
+  font-weight: 700;
+}
+
+.a-secondary {
+  color: #f6a800;
+  text-decoration: none;
+  cursor: pointer;
+  padding-right: 1rem;
+  text-transform: uppercase;
+}

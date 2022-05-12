@@ -1,4 +1,5 @@
 import React from 'react';
+import Anchor from '../../Anchor/Anchor';
 import Button from '../../Button/Button';
 import './infoSection.css';
 
@@ -13,8 +14,7 @@ function infoSection({
           <p>{p1}</p>
           <p>{p2}</p>
           <div className="buttons">
-            <Button onClick="/buy" color="primary">{buttonLabel1}</Button>
-            <Button onClick="/rent" color="primary">{buttonLabel2}</Button>
+            <Anchor href="/house" color="primary">{buttonLabel1}</Anchor>
           </div>
 
         </div>

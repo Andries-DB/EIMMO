@@ -27,7 +27,7 @@
 
 .columnLeft h1 {
   margin-bottom: 1rem;
-  font-size: clamp(1.rem, 6vw, 2rem);
+  font-size: clamp(1.5rem, 6vw, 2rem);
 }
 
 .columnLeft p {
