@@ -38,7 +38,6 @@ function Slider() {
             </div>
           </div>
           )}
-
         </div>
       ))}
       <div className="sliderButtons">

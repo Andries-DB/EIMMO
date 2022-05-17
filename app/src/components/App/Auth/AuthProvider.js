@@ -1,46 +1,47 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext, useContext, useEffect, useState
+} from 'react';
 
-const KEY = "FROOOTY_AUTH";
+const KEY = 'FROOOTY_AUTH';
 
 const AuthContext = createContext();
 
 const getAuthFromStorage = () => {
-    const auth = localStorage.getItem(KEY);
+  const auth = localStorage.getItem(KEY);
+  if (auth) {
+    return JSON.parse(auth);
+  }
+  return null;
+};
+
+function AuthProvider({ children }) {
+  const [auth, setAuth] = useState(getAuthFromStorage());
+
+  useEffect(() => {
     if (auth) {
-        return JSON.parse(auth);
+      localStorage.setItem(KEY, JSON.stringify(auth));
+    } else {
+      localStorage.removeItem(KEY);
     }
-    return null;
-};
+  }, [auth]);
 
-const AuthProvider = ({ children }) => {
-    const [auth, setAuth] = useState(getAuthFromStorage());
+  const handleLogout = () => {
+    setAuth(null);
+  };
 
-    useEffect(() => {
-        if (auth) {
-            localStorage.setItem(KEY, JSON.stringify(auth));
-        } else {
-            localStorage.removeItem(KEY);
-        }
-    }, [auth]);
+  const handleLogin = (auth) => {
+    setAuth(auth);
+  };
 
-    const handleLogout = () => {
-        setAuth(null);
-    };
+  return (
+    <AuthContext.Provider
+      value={{ auth, login: handleLogin, logout: handleLogout }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
+}
 
-    const handleLogin = (auth) => {
-        setAuth(auth);
-    };
-
-    return (
-        <AuthContext.Provider
-            value={{ auth, login: handleLogin, logout: handleLogout }}>
-            {children}
-        </AuthContext.Provider>
-    );
-};
-
-export const useAuthContext = () => {
-    return useContext(AuthContext);
-};
+export const useAuthContext = () => useContext(AuthContext);
 
 export default AuthProvider;

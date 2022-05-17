@@ -44,4 +44,4 @@ const useMutation = () => {
   };
 };
 
-export default useMutation;
+export { useMutation };

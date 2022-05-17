@@ -16,7 +16,6 @@ function infoSection({
           <div className="buttons">
             <Anchor href="/house" color="primary">{buttonLabel1}</Anchor>
           </div>
-
         </div>
         <div className="columnRight">
           <img alt="Home" src={image}></img>

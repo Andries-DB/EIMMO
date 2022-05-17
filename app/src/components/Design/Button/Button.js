@@ -8,6 +8,7 @@ function Button(
     onClick,
     color = 'primary',
     disabled = false,
+    type
   }
 ) {
   const navigate = useNavigate();
@@ -33,6 +34,7 @@ Button.propTypes = {
     'primary',
     'secondary',
   ]),
+  type: PropTypes.string
 };
 
 Button.defaultProps = {
@@ -41,6 +43,7 @@ Button.defaultProps = {
   children: '',
   disabled: false,
   color: 'primary',
+  type: 'button'
 };
 
 export default Button;

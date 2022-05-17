@@ -5,7 +5,7 @@ const AuthRoutes = {
 
 const BasicRoutes = {
   Index: '/',
-  Buy: '/house'
+  Search: '/Search'
 };
 
 // replaces : values with values from object

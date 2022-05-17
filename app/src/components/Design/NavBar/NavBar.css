@@ -25,6 +25,6 @@
   text-transform: uppercase;
 }
 
-.NavMenu a:nth-child(2) {
+.NavMenu a:last-child {
   padding-right: 3rem;
 }

@@ -1,0 +1,33 @@
+{
+  "Logo" : "EIMMO",
+  "Navigation" : {
+    "Login" : "Login",
+    "Search": "Search"
+  },
+  "LoginScreen": {
+    "Login" : {
+      "Email" : "Email",
+      "EmailPlaceholder" : "e.g. john.doe@gmail.com",
+      "Passw" : "Password",
+      "PasswPlaceholder" : "Password"
+    },
+    "Title" : "Login"
+  },
+  "SearchPage": {
+    "Title": "SearchPage",
+    "Description": "Search property by filters",
+    "Prop" : "Properties",
+    "Results" : {
+      "NoResult" : "No Resulrs"
+    },
+    "SearchFilter": {
+      "Title" : "SearchPage & Searchfilter",
+      "Description" : "Searchfilter is open"
+    }
+  },
+  "Button": {
+    "GoBack" : "Go back",
+    "Logout" : "Logout",
+    "Login" : "LogIn"
+  }
+}

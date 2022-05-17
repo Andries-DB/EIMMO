@@ -11,14 +11,20 @@ module.exports = {
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
       jsx: true,
+      modules: true,
     },
-    ecmaVersion: 6,
+    ecmaVersion: '2020',
     sourceType: 'module',
   },
   plugins: [
     'react',
   ],
   rules: {
+    'arrow-body-style': 'off',
+    'object-curly-newline': ['error', { multiline: true, minProperties: 4 }],
+    'no-shadow': 0,
+    'react/prop-types': 0,
+    'react/jsx-no-constructed-context-values': 0,
     'react/jsx-props-no-spreading': 0,
     'comma-dangle': 0,
     'react/jsx-uses-vars': 1,

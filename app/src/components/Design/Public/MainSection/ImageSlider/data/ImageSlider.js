@@ -6,7 +6,7 @@ export const SliderData = [
   {
     title: 'Luxueuze villa te koop in Gooik, Vlaams brabant',
     prijs: '€1.250.000,00',
-    path: '/buy',
+    path: '/house',
     label: 'Bekijk hier',
     image: imageOne,
     alt: 'Huis in Gooik'
@@ -14,7 +14,7 @@ export const SliderData = [
   {
     title: 'Herenhuis te koop in Gent, Oost-Vlaanderen',
     prijs: '€950 000,00',
-    path: '/buy',
+    path: '/house',
     label: 'Bekijk hier',
     image: imageTwo,
     alt: 'Huis in Gent'
@@ -22,7 +22,7 @@ export const SliderData = [
   {
     title: 'Appartement te huur in Knokke, West-Vlaanderen',
     prijs: '€150,00 p/n',
-    path: '/rent',
+    path: '/house',
     label: 'Bekijk hier',
     image: imageThree,
     alt: 'Appartement in Knokke'
