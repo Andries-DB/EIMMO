@@ -1,19 +1,19 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { NextFunction, Request, Response } from "express";
 import NotFoundError from "../../errors/NotFoundError";
-import ClientService from "./Client.service";
-import { ClientBody } from "./Client.types";
+import ImmoService from "./Immo.service";
+import { ImmoBody } from "./Immo.types";
 
-export default class ClientController {
-    private clientService: ClientService;
+export default class ImmoController {
+    private immoService: ImmoService;
 
     constructor() {
-        this.clientService = new ClientService();
+        this.immoService = new ImmoService();
     }
 
     all = async (req: Request, res: Response, next: NextFunction) => {
-        const clients = await this.clientService.all();
-        return res.json(clients);
+        const immos = await this.immoService.all();
+        return res.json(immos);
     };
 
     find = async (
@@ -21,37 +21,37 @@ export default class ClientController {
         res: Response,
         next: NextFunction
     ) => {
-        const client = await this.clientService.findOne(
+        const immo = await this.immoService.findOne(
             parseInt(req.params.id)
         );
-        if (!client) {
+        if (!immo) {
             next(new NotFoundError());
         }
-        return res.json(client);
+        return res.json(immo);
     };
 
     create = async (
-        req: Request<{}, {}, ClientBody>,
+        req: Request<{}, {}, ImmoBody>,
         res: Response,
         next: NextFunction
     ) => {
-        const client = await this.clientService.create(req.body);
-        return res.json(client);
+        const immo = await this.immoService.create(req.body);
+        return res.json(immo);
     };
 
     update = async (
-        req: Request<{ id: string }, {}, ClientBody>,
+        req: Request<{ id: string }, {}, ImmoBody>,
         res: Response,
         next: NextFunction
     ) => {
-        const client = await this.clientService.update(
+        const immo = await this.immoService.update(
             parseInt(req.params.id),
             req.body
         );
-        if (!client) {
+        if (!immo) {
             next(new NotFoundError());
         }
-        return res.json(client);
+        return res.json(immo);
     };
 
     delete = async (
@@ -59,8 +59,8 @@ export default class ClientController {
         res: Response,
         next: NextFunction
     ) => {
-        const client = await this.clientService.delete(parseInt(req.params.id));
-        if (!client) {
+        const immo = await this.immoService.delete(parseInt(req.params.id));
+        if (!immo) {
             next(new NotFoundError());
         }
         return res.json({});

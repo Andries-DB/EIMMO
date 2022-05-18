@@ -3,20 +3,21 @@ import AuthError from "../../errors/AuthError";
 import LocalStrategy from "./LocalStrategy";
 import ForbiddenError from "../../errors/ForbiddenError";
 import * as jwt from "jsonwebtoken";
-import Admin from "../../modules/Admin/Admin.entity";
+import User from "../../modules/Admin/Admin.entity";
 import { AdminRole } from "../../modules/Admin/Admin.constants";
 import { NextFunction, Response } from "express";
 import JwtStrategy from "./JwtStrategy";
+import { env } from 'process';
 
 passport.use("local", LocalStrategy);
 passport.use("jwt", JwtStrategy);
 
 const passportWithErrorHandling = (strategy: string | passport.Strategy | string[]) => {
-    return function (req: Request, res: Response, next: NextFunction) {
+    return function (req: { user: User; }, res: Response, next: NextFunction) {
         passport.authenticate(
             strategy,
             { session: false },
-            function (err: any, user: Admin) {
+            function (err: any, user: User) {
                 if (err) {
                     return next(err);
                 }
@@ -34,9 +35,9 @@ const passportWithErrorHandling = (strategy: string | passport.Strategy | string
 const authLocal = passportWithErrorHandling("local");
 const authJwt = passportWithErrorHandling("jwt");
 
-const createToken = (user: Admin) => {
-    return jwt.sign({ id: user.id, user: user.email }, process.env.JWT_SECRET, {
-        expiresIn: parseInt(process.env.JWT_EXPIRES_IN_HOURS) * 60 * 60,
+const createToken = (user: User) => {
+    return jwt.sign({ id: user.id, user: user.email }, env.JWT_SECRET, {
+        expiresIn: parseInt(env.JWT_EXPIRES_IN_HOURS) * 60 * 60,
     });
 };
 

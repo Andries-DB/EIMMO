@@ -2,11 +2,11 @@ import { CreateDateColumn, DeleteDateColumn, UpdateDateColumn } from "typeorm";
 
 export abstract class BaseEntity {
     @CreateDateColumn({ select: false })
-    createdAt: Date;
+    createdAt: Date | undefined;
 
     @UpdateDateColumn({ select: false })
-    updatedAt: Date;
+    updatedAt: Date | undefined;
 
     @DeleteDateColumn({ select: false })
-    deletedAt: Date;
+    deletedAt: Date | undefined;
 }

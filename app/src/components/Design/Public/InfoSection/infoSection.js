@@ -1,20 +1,20 @@
+import { useTranslation } from 'react-i18next';
 import React from 'react';
 import Anchor from '../../Anchor/Anchor';
-import Button from '../../Button/Button';
 import './infoSection.css';
 
-function infoSection({
-  heading, p1, p2, buttonLabel1, buttonLabel2, image
-}) {
+function infoSection({ image }) {
+  const { t } = useTranslation();
+
   return (
     <section className="section">
       <div className="infoSection">
         <div className="columnLeft">
-          <h1>{heading}</h1>
-          <p>{p1}</p>
-          <p>{p2}</p>
+          <h1>{t('InfoSection.Heading')}</h1>
+          <p>{t('InfoSection.P1')}</p>
+          <p>{t('InfoSection.P2')}</p>
           <div className="buttons">
-            <Anchor href="/house" color="primary">{buttonLabel1}</Anchor>
+            <Anchor href="/search" color="primary">{t('Button.Search')}</Anchor>
           </div>
         </div>
         <div className="columnRight">

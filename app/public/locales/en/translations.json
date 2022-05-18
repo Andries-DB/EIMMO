@@ -25,7 +25,13 @@
       "Description" : "Searchfilter is open"
     }
   },
+  "InfoSection" : {
+    "Heading" : "Explore our beautiful homes",
+    "P1" : "You can buy or rent our beautiful homes for a minimalistic price. Filter on your needs and you will find your new home!",
+    "P2" : "Click on one the button to find all the pretty homes!"
+  },
   "Button": {
+    "Search" : "Search",
     "GoBack" : "Go back",
     "Logout" : "Logout",
     "Login" : "LogIn"

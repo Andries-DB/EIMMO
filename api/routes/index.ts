@@ -1,32 +1,31 @@
 import { NextFunction, Request, Response, Router } from "express";
 import NotFoundError from "../errors/NotFoundError";
 import { authJwt, authLocal } from "../middleware/auth";
-import ClientController from "../modules/Client/Client.controller";
-import ProjectController from "../modules/Project/Project.controller";
+import ImmoController from "../modules/Immo/Immo.controller";
 import AuthController from "../modules/Admin/Auth.controller";
-import AdminController from "../modules/Admin/Admin.controller";
+import ClientController from "../modules/Client/Client.controller";
 
 const registerOnboardingRoutes = (router: Router) => {
     const authController = new AuthController();
-    router.post("/login", authLocal, authController.login);
+    router.post("/auth/login", authLocal, authController.login);
 };
 
 const registerAuthenticatedRoutes = (router: Router) => {
     const authRouter = Router();
 
     const clientController = new ClientController();
-    authRouter.get("/clients", clientController.all);
-    authRouter.get("/clients/:id", clientController.find);
-    authRouter.post("/clients", clientController.create);
-    authRouter.patch("/clients/:id", clientController.update);
-    authRouter.delete("/clients/:id", clientController.delete);
+    authRouter.get("/client/search", clientController.all);
+    authRouter.get("/client/search/:id", clientController.find);
+    authRouter.post("/client/", clientController.create);
+    authRouter.patch("/client/:id", clientController.update);
+    authRouter.delete("/client/:id", clientController.delete);
 
-    const projectController = new ProjectController();
-    authRouter.get("/projects", projectController.all);
-    authRouter.get("/projects/:id", projectController.find);
-    authRouter.post("/projects", projectController.create);
-    authRouter.patch("/projects/:id", projectController.update);
-    authRouter.delete("/projects/:id", clientController.delete);
+    const immoController = new ImmoController();
+    authRouter.get("/immo/search", immoController.all);
+    authRouter.get("/immo/search/:id", immoController.find);
+    authRouter.post("/immo/", immoController.create);
+    authRouter.patch("/immo/:id", immoController.update);
+    authRouter.delete("/immo/:id", immoController.delete);
 
     // authenticated routes use authJWT
     router.use(authJwt, authRouter);

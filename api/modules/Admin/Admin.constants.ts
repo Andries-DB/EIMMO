@@ -1,6 +1,6 @@
 enum AdminRole {
   Admin = "ADMIN",
-  Immo = "IMMO",
+  User = "USER",
 }
 
 export { AdminRole };
