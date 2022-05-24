@@ -5,19 +5,19 @@ import { IsDefined, IsEmail } from "class-validator";
 @Entity()
 export default class Client extends BaseEntity {
     @PrimaryGeneratedColumn()
-    id: number | undefined;
+    id;
 
     @IsDefined()
     @Column()
-    name: string | undefined;
+    name : string;
 
     @IsDefined()
     @IsEmail()
-    @Column()
-    contactEmail: string | undefined;
-
+    @Column({unique:true})
+    contactEmail : string;
+    
     @IsDefined()
     @Column()
-    contactName: string | undefined;
+    contactName : string;
 
 }

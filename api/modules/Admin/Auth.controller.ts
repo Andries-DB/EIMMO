@@ -4,10 +4,10 @@ import { AuthRequest } from "../../middleware/auth/auth.types";
 
 export default class AuthController {
     login = async (req: AuthRequest, res: Response, next: NextFunction) => {
-        const { client } = req;
+        const { admin } = req;
         res.json({
-            client,
-            token: createToken(client),
+            admin,
+            token: createToken(admin),
         });
     };
 }

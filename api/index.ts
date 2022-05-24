@@ -1,6 +1,5 @@
 import "dotenv/config";
-
-import express from "express";
+import * as express from "express";
 import { AppDataSource } from "./database/DataSource";
 import { registerErrorHandler, registerMiddleware } from "./middleware";
 import { registerRoutes } from "./routes";

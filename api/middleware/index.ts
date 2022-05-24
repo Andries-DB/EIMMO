@@ -1,4 +1,4 @@
-import cors from "cors";
+import * as cors from "cors";
 import * as bodyParser from "body-parser";
 import * as helmet from "helmet";
 import { NextFunction, Request, Response, Router } from "express";

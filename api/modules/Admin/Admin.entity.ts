@@ -6,26 +6,26 @@ import { AdminRole } from "./Admin.constants";
 @Entity()
 export default class Admin extends BaseEntity {
     @PrimaryGeneratedColumn()
-    id: number | undefined;
+    id: number;
 
     @Column()
-    name: string | undefined;
+    name: string;
 
     @Column()
-    surname: string | undefined;
+    surname: string;
 
     @Column({ unique: true })
-    email: string | undefined;
+    email: string;
 
     @Column({ select: false })
-    password: string | undefined;
+    password: string;
 
     @Column({
         type: "enum",
         enum: AdminRole,
         default: AdminRole.Admin,
     })
-    role: AdminRole | undefined;
+    role: AdminRole;
 
     @BeforeInsert()
     async hashPassword() {

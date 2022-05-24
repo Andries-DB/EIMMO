@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import NotFoundError from "../../errors/NotFoundError";
 import { AuthRequest } from "../../middleware/auth/auth.types";
 import AdminService from "./Admin.service";
+import { AdminBody } from "./Admin.types";
 
 export default class AdminController {
     private adminService: AdminService;
@@ -28,13 +29,13 @@ export default class AdminController {
         return res.json(user);
     };
 
-    create = async (req: AuthRequest, res: Response, next: NextFunction) => {
+    create = async (req: AuthRequest<{}, {}, AdminBody>, res: Response, next: NextFunction) => {
         const user = await this.adminService.create(req.body);
         return res.json(user);
     };
 
     update = async (
-        req: AuthRequest<{ id: string }>,
+        req: AuthRequest<{ id: string }, {} , AdminBody>,
         res: Response,
         next: NextFunction
     ) => {

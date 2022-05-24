@@ -1,24 +1,19 @@
 import Admin from "../../modules/Admin/Admin.entity";
-
-import * as LocalStrategy from "passport-local";
+import {Strategy as LocalStrategy } from 'passport-local'
 import AdminService from "../../modules/Admin/Admin.service";
 
-// local strategy for login with username and password
-export default new LocalStrategy(
-    {
-        usernameField: "email",
-    },
-    async (email: string, password: string, done: (arg0: unknown, arg1: null) => any) => {
+export default new LocalStrategy({usernameField: "email" },
+    async (email: string, password: string, done) => {
         try {
             // find user with email
-            const adminService = new AdminService();
-            const user: Admin = await adminService.findByEmailWithPassword(email);
+            const adminservice = new AdminService();
+            const user: Admin = await adminservice.findByEmailWithPassword(email);
             if (user) {
                 // if found, check if password matches
                 const check = await user.checkPassword(password);
                 if (check) {
                     // correct email and password combination. Pass user to request
-                    const user: Admin = await adminService.findOneBy({
+                    const user: Admin = await adminservice.findOneBy({
                         email: email,
                     });
                     return done(null, user);
