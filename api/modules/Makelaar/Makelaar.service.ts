@@ -1,13 +1,13 @@
 import { Repository } from "typeorm";
 
 import { AppDataSource } from "../../database/DataSource";
-import Client from "./Client.entity";
+import Makelaar from "./Makelaar.entity";
 
-export default class ClientService {
-    private repository: Repository<Client>;
+export default class MakelaarService {
+    private repository: Repository<Makelaar>;
 
     constructor() {
-        const repository = AppDataSource.getRepository(Client);
+        const repository = AppDataSource.getRepository(Makelaar);
         this.repository = repository;
     }
 

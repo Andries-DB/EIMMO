@@ -1,4 +1,4 @@
-export interface ClientBody {
+export interface MakelaarBody {
   name: string;
   email: string;
   contactName: string;

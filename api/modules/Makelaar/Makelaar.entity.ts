@@ -1,21 +1,26 @@
 import { compare, hash } from "bcrypt";
-import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn, BeforeInsert } from "typeorm";
 import { BaseEntity } from "../BaseEntity";
-import { AdminRole } from "./Admin.constants";
+import { IsDefined, IsEmail } from "class-validator";
+import { AdminRole } from "../Admin/Admin.constants";
 
 @Entity()
-export default class Admin extends BaseEntity {
+export default class Makelaar extends BaseEntity {
     @PrimaryGeneratedColumn()
-    id: number;
+    id : number;
 
+    @IsDefined()
     @Column()
-    name: string;
+    name : string;
 
+    @IsDefined()
+    @IsEmail()
+    @Column({unique:true})
+    email : string;
+    
+    @IsDefined()
     @Column()
-    contactName: string;
-
-    @Column({ unique: true })
-    email: string;
+    contactName : string;
 
     @Column({ select: false })
     password: string;
@@ -23,10 +28,11 @@ export default class Admin extends BaseEntity {
     @Column({
         type: "enum",
         enum: AdminRole,
-        default: AdminRole.Admin,
+        default: AdminRole.Makelaar,
     })
     role: AdminRole;
 
+    
     @BeforeInsert()
     async hashPassword() {
         if (this.password) {

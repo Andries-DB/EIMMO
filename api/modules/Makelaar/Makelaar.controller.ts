@@ -1,14 +1,14 @@
 import { NextFunction, Request, Response } from "express";
 import NotFoundError from "../../errors/NotFoundError";
 import { AuthRequest } from "../../middleware/auth/auth.types";
-import ClientService from "./Client.service";
-import { ClientBody } from "./Client.types";
+import MakelaarService from "./Makelaar.service";
+import { MakelaarBody } from "./Makelaar.types";
 
-export default class UserController {
-    private userService: ClientService;
+export default class MakelaarController {
+    private userService: MakelaarService;
 
     constructor() {
-        this.userService = new ClientService();
+        this.userService = new MakelaarService();
     }
 
     all = async (req: AuthRequest, res: Response, next: NextFunction) => {
@@ -30,7 +30,7 @@ export default class UserController {
     };
 
     create = async (
-        req: AuthRequest<{}, {}, ClientBody>,
+        req: AuthRequest<{}, {}, MakelaarBody>,
         res: Response,
         next: NextFunction
     ) => {
@@ -39,7 +39,7 @@ export default class UserController {
     };
 
     update = async (
-        req: AuthRequest<{ id: string }, {}, ClientBody>,
+        req: AuthRequest<{ id: string }, {}, MakelaarBody>,
         res: Response,
         next: NextFunction
     ) => {

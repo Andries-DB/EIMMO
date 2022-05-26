@@ -5,10 +5,11 @@ import ImmoController from "../modules/Immo/Immo.controller";
 import AuthController from "../modules/Admin/Auth.controller";
 import ClientController from "../modules/Client/Client.controller";
 import AdminController from "../modules/Admin/Admin.controller";
+import MakelaarController from "../modules/Makelaar/Makelaar.controller";
 
 const registerOnboardingRoutes = (router: Router) => {
     const authController = new AuthController();
-    router.post("/auth/login", authLocal, authController.login);
+    router.post("/login", authLocal, authController.login);
 };
 
 const registerAuthenticatedRoutes = (router: Router) => {
@@ -34,6 +35,13 @@ const registerAuthenticatedRoutes = (router: Router) => {
     authRouter.post('/admin', adminController.create);
     authRouter.patch('/admin/:id' , adminController.update);
     authRouter.delete('/admin/:id', adminController.delete);
+
+    const makelaarController = new MakelaarController();
+    authRouter.get('/makelaar' , makelaarController.all);
+    authRouter.get('/makelaar/:id' , makelaarController.find);
+    authRouter.post('/makelaar', makelaarController.create);
+    authRouter.patch('/makelaar/:id' , makelaarController.update);
+    authRouter.delete('/makelaar/:id', makelaarController.delete);
 
     // authenticated routes use authJWT
     router.use(authJwt, authRouter);

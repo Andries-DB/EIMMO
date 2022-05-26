@@ -18,7 +18,7 @@
     "Description": "Search property by filters",
     "Prop" : "Properties",
     "Results" : {
-      "NoResult" : "No Resulrs"
+      "NoResult" : "No Results"
     },
     "SearchFilter": {
       "Title" : "SearchPage & Searchfilter",

@@ -1,5 +1,6 @@
 import Admin from "../../modules/Admin/Admin.entity";
-import {Strategy as LocalStrategy } from 'passport-local'
+
+import * as LocalStrategy from 'passport-local/lib'
 import AdminService from "../../modules/Admin/Admin.service";
 
 export default new LocalStrategy({usernameField: "email" },
