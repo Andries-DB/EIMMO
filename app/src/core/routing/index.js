@@ -3,9 +3,11 @@ const AuthRoutes = {
   Login: '/auth/login',
 };
 
-const BasicRoutes = {
-  Index: '/',
-  Search: '/Search'
+const BasicRoutes = { Index: '/', };
+
+const ImmoRoutes = {
+  Search: '/search',
+  Detail: '/search/:id'
 };
 
 // replaces : values with values from object
@@ -17,4 +19,4 @@ export const route = (path, options = {}) => {
   return path;
 };
 
-export { AuthRoutes, BasicRoutes };
+export { AuthRoutes, BasicRoutes, ImmoRoutes };

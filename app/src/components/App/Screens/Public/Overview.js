@@ -4,11 +4,10 @@ import Searchpage from '../../../Design/Public/Overview/HouseList/Searchpage';
 
 function Overview() {
   return (
-    <div>
+    <>
       <NavBar />
       <Searchpage />
-
-    </div>
+    </>
   );
 }
 

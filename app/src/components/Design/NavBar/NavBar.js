@@ -4,7 +4,7 @@ import Logo from '../Logo/Logo';
 import './NavBar.css';
 import Anchor from '../Anchor/Anchor';
 import { useAuthContext } from '../../App/Auth/AuthProvider';
-import { AuthRoutes, BasicRoutes } from '../../../core/routing';
+import { AuthRoutes, BasicRoutes, ImmoRoutes } from '../../../core/routing';
 import { isAdmin, isImmo, isUser } from '../../../core/modules/Users/utils';
 
 function NavBar() {
@@ -20,7 +20,7 @@ function NavBar() {
       label: t('Navigation.Login'),
     },
     {
-      href: BasicRoutes.Search,
+      href: ImmoRoutes.Search,
       label: t('Navigation.Search'),
     },
   ];
