@@ -4,7 +4,9 @@ import Logo from '../Logo/Logo';
 import './NavBar.css';
 import Anchor from '../Anchor/Anchor';
 import { useAuthContext } from '../../App/Auth/AuthProvider';
-import { AuthRoutes, BasicRoutes, ImmoRoutes } from '../../../core/routing';
+import {
+  AdminRoutes, AuthRoutes, BasicRoutes, ImmoRoutes
+} from '../../../core/routing';
 import { isAdmin, isImmo, isUser } from '../../../core/modules/Users/utils';
 
 function NavBar() {
@@ -14,7 +16,7 @@ function NavBar() {
     logout,
   } = useAuthContext();
 
-  const items = [
+  let items = [
     {
       href: AuthRoutes.Login,
       label: t('Navigation.Login'),
@@ -25,9 +27,21 @@ function NavBar() {
     },
   ];
 
-  /* if (isAdmin)
-  if (isUser)
-  if (isImmo) */
+  if (isAdmin) {
+    items = [
+      ...items,
+      {
+        href: AdminRoutes.Dash,
+        label: t('Navigation.AdminDash'),
+      },
+    ];
+  }
+  if (isUser) {
+    //
+  }
+  if (isImmo) {
+    //
+  }
   return (
     <nav className="nav">
       <Logo />

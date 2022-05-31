@@ -1,6 +1,5 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import millify from 'millify';
 import { FaBed, FaBath } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import { BsGridFill } from 'react-icons/bs';
@@ -30,6 +29,9 @@ function PropDetail() {
               €
               {property?.price}
             </span>
+          </div>
+          <div>
+            {property?.adress}
           </div>
           <div className="cardRooms">
             {property?.amountBedrooms}

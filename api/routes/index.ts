@@ -3,24 +3,14 @@ import NotFoundError from "../errors/NotFoundError";
 import { authJwt, authLocal } from "../middleware/auth";
 import ImmoController from "../modules/Immo/Immo.controller";
 import AuthController from "../modules/Admin/Auth.controller";
-import ClientController from "../modules/Client/Client.controller";
 import AdminController from "../modules/Admin/Admin.controller";
-import MakelaarController from "../modules/Makelaar/Makelaar.controller";
 
 const registerOnboardingRoutes = (router: Router) => {
-    const authController = new AuthController();
-    router.post("/login", authLocal, authController.login);
+    
 };
 
 const registerAuthenticatedRoutes = (router: Router) => {
     const authRouter = Router();
-
-    const clientController = new ClientController();
-    authRouter.get("/client", clientController.all);
-    authRouter.get("/client/:id", clientController.find);
-    authRouter.post("/client", clientController.create);
-    authRouter.patch("/client/:id", clientController.update);
-    authRouter.delete("/client/:id", clientController.delete);
 
     const adminController = new AdminController();
     authRouter.get('/admin' , adminController.all);
@@ -29,19 +19,15 @@ const registerAuthenticatedRoutes = (router: Router) => {
     authRouter.patch('/admin/:id' , adminController.update);
     authRouter.delete('/admin/:id', adminController.delete);
 
-    const makelaarController = new MakelaarController();
-    authRouter.get('/makelaar' , makelaarController.all);
-    authRouter.get('/makelaar/:id' , makelaarController.find);
-    authRouter.post('/makelaar', makelaarController.create);
-    authRouter.patch('/makelaar/:id' , makelaarController.update);
-    authRouter.delete('/makelaar/:id', makelaarController.delete);
-
     // authenticated routes use authJWT
     router.use(authJwt, authRouter);
 };
 
 const registerNormalRoutes = (router: Router) => {
 
+    const authController = new AuthController();
+    router.post("/login", authLocal, authController.login);
+    
     const immoController = new ImmoController();
     router.get("/immo", immoController.all);
     router.get("/immo/:id", immoController.find);

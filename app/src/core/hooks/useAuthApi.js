@@ -20,7 +20,6 @@ const useAuthApi = () => {
       return fetch(url, config)
         .then(handleErrors)
         .catch((error) => {
-          console.log(error);
           if (error instanceof ApiError) {
             if (error.isUnauthorized()) {
               logout();
@@ -34,7 +33,7 @@ const useAuthApi = () => {
     [logout, auth]
   );
 
-  return { authFetch };
+  return { authFetch, };
 };
 
 export default useAuthApi;

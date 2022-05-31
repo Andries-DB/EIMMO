@@ -8,7 +8,7 @@ function Button(
     onClick,
     color = 'primary',
     disabled = false,
-    type
+    type,
   }
 ) {
   const navigate = useNavigate();
@@ -16,9 +16,10 @@ function Button(
   return (
     <button
       className={`btn btn-${color}`}
-      onClick={navigate(`${onClick}`)}
+      onClick={() => navigate(`${onClick}`)}
       disabled={disabled}
-      type="button"
+      // eslint-disable-next-line react/button-has-type
+      type={type}
     >
       {children}
     </button>
@@ -34,7 +35,10 @@ Button.propTypes = {
     'primary',
     'secondary',
   ]),
-  type: PropTypes.string
+  type: PropTypes.oneOf([
+    'button',
+    'submit',
+  ]),
 };
 
 Button.defaultProps = {

@@ -1,10 +1,9 @@
-const AuthRoutes = {
-  Index: '/auth',
-  Login: '/auth/login',
-};
+const AuthRoutes = { Login: '/login', };
 
 const BasicRoutes = { Index: '/', };
 
+const MakelaarRoutes = { Dash: '/immo/dashboard' };
+const AdminRoutes = { Dash: '/admin/dashboard' };
 const ImmoRoutes = {
   Search: '/search',
   Detail: '/search/:id'
@@ -19,4 +18,6 @@ export const route = (path, options = {}) => {
   return path;
 };
 
-export { AuthRoutes, BasicRoutes, ImmoRoutes };
+export {
+  AuthRoutes, BasicRoutes, ImmoRoutes, AdminRoutes, MakelaarRoutes
+};

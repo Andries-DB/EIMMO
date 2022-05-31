@@ -1,3 +1,5 @@
+const { off } = require('process');
+
 module.exports = {
 
   env: {
@@ -22,6 +24,8 @@ module.exports = {
   rules: {
     'arrow-body-style': 'off',
     'object-curly-newline': ['error', { multiline: true, minProperties: 4 }],
+    'no-restricted-syntax': 'off',
+    'guard-for-in': 'off',
     'no-shadow': 0,
     'react/prop-types': 0,
     'react/jsx-no-constructed-context-values': 0,

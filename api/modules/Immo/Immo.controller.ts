@@ -26,6 +26,7 @@ export default class ImmoController {
         );
         if (!immo) {
             next(new NotFoundError());
+            return;
         }
         return res.json(immo);
     };
@@ -50,7 +51,9 @@ export default class ImmoController {
         );
         if (!immo) {
             next(new NotFoundError());
+            return;
         }
+
         return res.json(immo);
     };
 
@@ -62,6 +65,7 @@ export default class ImmoController {
         const immo = await this.immoService.delete(parseInt(req.params.id));
         if (!immo) {
             next(new NotFoundError());
+            return;
         }
         return res.json({});
     };

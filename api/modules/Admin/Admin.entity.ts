@@ -23,7 +23,7 @@ export default class Admin extends BaseEntity {
     @Column({
         type: "enum",
         enum: AdminRole,
-        default: AdminRole.Admin,
+        default: AdminRole.User,
     })
     role: AdminRole;
 

@@ -2,16 +2,22 @@ import {
   createContext, useContext, useEffect, useState
 } from 'react';
 
-const KEY = 'FROOOTY_AUTH';
+const KEY = 'EIMMO_AUTH';
 
 const AuthContext = createContext();
 
 const getAuthFromStorage = () => {
   const auth = localStorage.getItem(KEY);
   if (auth) {
-    return JSON.parse(auth);
+    // base64 encode
+    return JSON.parse(atob(auth));
   }
   return null;
+};
+
+const saveAuthToStorage = (auth) => {
+  // base64 decode
+  localStorage.setItem(KEY, btoa(JSON.stringify(auth)));
 };
 
 function AuthProvider({ children }) {
@@ -19,7 +25,7 @@ function AuthProvider({ children }) {
 
   useEffect(() => {
     if (auth) {
-      localStorage.setItem(KEY, JSON.stringify(auth));
+      saveAuthToStorage(auth);
     } else {
       localStorage.removeItem(KEY);
     }
@@ -42,6 +48,13 @@ function AuthProvider({ children }) {
   );
 }
 
-export const useAuthContext = () => useContext(AuthContext);
+export const useAuthContext = () => {
+  return useContext(AuthContext);
+};
+
+export const useUser = () => {
+  const { auth } = useAuthContext();
+  return auth?.user;
+};
 
 export default AuthProvider;

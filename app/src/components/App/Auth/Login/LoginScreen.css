@@ -33,22 +33,52 @@
 .formLogin {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: flex-start;
   height: 20%;
-  width: 30%;
 }
 
 .inputLogin {
   background: rgba(255,255,255,0.15);
   border-radius: 2rem;
-  width: 10vw;
+  width: 20vw;
   height: 3rem;
   padding: 1rem;
+  margin-bottom: 1rem;
   border: none;
   outline: none;
 }
 
 .inputLogin::placeholder {
 color: white;
+}
+
+.formLogin button {
+  margin-top: .5rem;
+}
+
+h5 {
+  margin-top: 6rem;
+}
+
+.registerButton {
+  padding: .5rem 1rem;
+  margin-top: 1rem;
+  border: none;
+  background: #f6a800;
+  color: white;
+  border-radius: 1rem;
+  transition: .2s ease;
+  max-width: 160px;
+  display: flex;
+  text-transform: uppercase;
+  justify-content: space-between;
+  align-items: left;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+.registerButton:hover {
+  color: #f6a800;
+  background: transparent;
+  cursor: pointer;
+  border: 1px solid #f6a800;
 }
