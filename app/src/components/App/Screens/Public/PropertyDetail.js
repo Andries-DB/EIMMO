@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from '../../../Design/NavBar/NavBar';
+import NavBar from '../../../Design/NavBar/Public/NavBar';
 import PropDetail from '../../../Design/Property/Detail/PropDetail';
 
 function PropertyDetail() {

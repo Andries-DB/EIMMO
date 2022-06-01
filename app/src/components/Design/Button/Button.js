@@ -29,7 +29,7 @@ function Button(
 Button.propTypes = {
 
   children: PropTypes.string,
-  onClick: PropTypes.string,
+  onClick: PropTypes.func,
   disabled: PropTypes.bool,
   color: PropTypes.oneOf([
     'primary',
@@ -42,7 +42,6 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-
   onClick: '',
   children: '',
   disabled: false,

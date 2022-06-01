@@ -3,7 +3,7 @@ const AuthRoutes = { Login: '/login', };
 const BasicRoutes = { Index: '/', };
 
 const MakelaarRoutes = { Dash: '/immo/dashboard' };
-const AdminRoutes = { Dash: '/admin/dashboard' };
+const AdminRoutes = { Dash: '/admin/dashboard', HouseOverview: '/admin/immo/overview', AddClient: '/admin/dashboard/add' };
 const ImmoRoutes = {
   Search: '/search',
   Detail: '/search/:id'

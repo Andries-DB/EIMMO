@@ -21,5 +21,11 @@
 }
 
 .btn-secondary {
-
+  color: #f6a800;
+  cursor: pointer;
+  padding-right: 1rem;
+  text-transform: uppercase;
+  border: none;
+  background: transparent;
+  font-weight: bold;
 }

@@ -1,5 +1,5 @@
 import { Navigate, useLocation } from 'react-router-dom';
-import { AuthRoutes } from '../../../core/routing';
+import { AuthRoutes, BasicRoutes } from '../../../core/routing';
 import { useAuthContext } from './AuthProvider';
 
 function AuthContainer({ children }) {
@@ -9,7 +9,7 @@ function AuthContainer({ children }) {
   if (!auth) {
     return (
       <Navigate
-        to={AuthRoutes.Login}
+        to={BasicRoutes.Index}
         state={{ from: location }}
         replace
       />

@@ -3,7 +3,9 @@
   "Navigation" : {
     "Login" : "Login",
     "Search": "Search",
-    "AdminDash" : "Dashboard (Admin)"
+    "AdminDash" : "Dashboard (Admin)",
+    "ImmoDash" : "Dashboard (Immo)",
+    "PropertiesOverview" : "List properties"
   },
   "LoginScreen": {
     "Login" : {

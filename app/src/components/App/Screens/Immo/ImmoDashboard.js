@@ -1,8 +1,9 @@
 import React from 'react';
+import NavBar from '../../../Design/NavBar/Immo/NavBar';
 
 function ImmoDashboard() {
   return (
-    <div>ImmoDashboard</div>
+    <div><NavBar /></div>
   );
 }
 

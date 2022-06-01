@@ -1,9 +1,14 @@
 import React from 'react';
-import NavBar from '../../../Design/NavBar/NavBar';
+import AdminOverview from '../../../Design/Admin/Overview/AdminOverview';
+import NavBar from '../../../Design/NavBar/Admin/NavBar';
 
 function AdminDashboard() {
   return (
-    <NavBar />
+    <>
+      <NavBar />
+      <AdminOverview />
+    </>
+
   );
 }
 

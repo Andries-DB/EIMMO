@@ -5,10 +5,6 @@ import ImmoController from "../modules/Immo/Immo.controller";
 import AuthController from "../modules/Admin/Auth.controller";
 import AdminController from "../modules/Admin/Admin.controller";
 
-const registerOnboardingRoutes = (router: Router) => {
-    
-};
-
 const registerAuthenticatedRoutes = (router: Router) => {
     const authRouter = Router();
 
@@ -19,6 +15,10 @@ const registerAuthenticatedRoutes = (router: Router) => {
     authRouter.patch('/admin/:id' , adminController.update);
     authRouter.delete('/admin/:id', adminController.delete);
 
+    const immoController = new ImmoController();
+    authRouter.post("/immo", immoController.create);
+    authRouter.patch("/immo/:id", immoController.update);
+    authRouter.delete("/immo/:id", immoController.delete);
     // authenticated routes use authJWT
     router.use(authJwt, authRouter);
 };
@@ -31,14 +31,10 @@ const registerNormalRoutes = (router: Router) => {
     const immoController = new ImmoController();
     router.get("/immo", immoController.all);
     router.get("/immo/:id", immoController.find);
-    router.post("/immo", immoController.create);
-    router.patch("/immo/:id", immoController.update);
-    router.delete("/immo/:id", immoController.delete);
 } 
 
 const registerRoutes = (app: Router) => {
     // onboarding routes (login, ...)
-    registerOnboardingRoutes(app);
     registerNormalRoutes(app);
     // authenticated routes (authentication required)
     registerAuthenticatedRoutes(app);

@@ -15,7 +15,7 @@ import Alert from '../../../Design/Alert';
 import {
   AdminRoutes, BasicRoutes, ImmoRoutes, MakelaarRoutes
 } from '../../../../core/routing';
-import NavBar from '../../../Design/NavBar/NavBar';
+import NavBar from '../../../Design/NavBar/Public/NavBar';
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
