@@ -15,6 +15,7 @@ import AdminDashboard from './Screens/Admin/AdminDashboard';
 import AdminImmoOverview from './Screens/Admin/AdminImmoOverview';
 import AdminLayout from './Screens/Admin/AdminLayout';
 import AddClient from './Screens/Admin/add/AddClient';
+import SettingsClient from './Screens/Admin/update/SettingsClient';
 
 function App() {
   return (
@@ -57,7 +58,7 @@ function App() {
         <Route path={AdminRoutes.Dash} element={<AdminDashboard />} />
         <Route path={AdminRoutes.HouseOverview} element={<AdminImmoOverview />} />
         <Route path={AdminRoutes.AddClient} element={<AddClient />} />
-
+        <Route path={AdminRoutes.SettingsClient} element={<SettingsClient />} />
         <Route
           element={(
             <AuthContainer>

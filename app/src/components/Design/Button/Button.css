@@ -1,6 +1,6 @@
 .btn-primary {
   padding: 1rem 1.4rem;
-  border: none;
+  border: 1px solid #f6a800;
   background: #f6a800;
   color: white;
   border-radius: 1rem;

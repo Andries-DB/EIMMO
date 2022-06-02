@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { AiOutlineUserAdd } from 'react-icons/ai';
+import { GrUserSettings } from 'react-icons/gr';
 import useFetch from '../../../../core/hooks/useFetch';
 import useMutation from '../../../../core/hooks/useMutation';
 import Anchor from '../../Anchor/Anchor';
@@ -37,16 +38,24 @@ function AdminOverview() {
             <th> </th>
           </tr>
           {users?.map((user) => (
+
             <tr>
               <td>{user.id}</td>
               <td>{user.name}</td>
               <td>{user.contactName}</td>
               <td>{user.email}</td>
               <td>{user.role}</td>
-              <button type="button" className="btn-primary" onClick={() => { handleClick(user.id); }}>
-                <FaTrash />
-              </button>
+              <div className="clientButtons">
+                <button type="button" className="btn-primary" onClick={() => { handleClick(user.id); }}>
+                  <FaTrash className="icon" />
+                </button>
+                <Anchor href={`dashboard/client/${user.id}`}>
+                  <GrUserSettings className="icon" />
+                </Anchor>
+              </div>
+
             </tr>
+
           ))}
 
         </table>

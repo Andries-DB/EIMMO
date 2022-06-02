@@ -44,13 +44,12 @@ function LoginScreen() {
       data: values,
       onSuccess: (data) => {
         login(data);
+        console.log(data);
         if (data.user.role === 'ADMIN') {
           navigate(AdminRoutes.Dash);
         } else if (data.user.role === 'IMMO') {
           navigate(MakelaarRoutes.Dash);
         } else { navigate(ImmoRoutes.Search); }
-
-        // navigate(BasicRoutes.Index);
       },
     });
   };
