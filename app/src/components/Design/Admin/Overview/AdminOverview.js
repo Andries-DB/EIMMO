@@ -26,7 +26,7 @@ function AdminOverview() {
           Add new Client
         </Anchor>
       </div>
-      <div className="overviewAdminClient">
+      <div className="overviewAdmin">
 
         <table>
           <tr>

@@ -1,11 +1,14 @@
 import millify from 'millify';
 import React from 'react';
 import { FaBath, FaBed, FaTrash, } from 'react-icons/fa';
+import { GrUserSettings } from 'react-icons/gr';
+import { AiOutlineUserAdd } from 'react-icons/ai';
 import useFetch from '../../../../core/hooks/useFetch';
 
 import Loading from '../../Loading/Loading';
 import Alert from '../../Alert';
 import useMutation from '../../../../core/hooks/useMutation';
+import Anchor from '../../Anchor/Anchor';
 
 function PropertiesOverview() {
   const { mutate } = useMutation();
@@ -22,63 +25,83 @@ function PropertiesOverview() {
   };
 
   return (
-    <div className="overviewAdminImmo">
-      <table>
-        <tr>
-          <th>ID</th>
-          <th>Type</th>
-          <th>Title</th>
-          <th>Price</th>
-          <th>Adress</th>
-          <th>Size</th>
-          <th>Amount of bedrooms</th>
-          <th>Amount of bathrooms</th>
-          <th> </th>
-        </tr>
-        {properties?.map((property) => (
+    <>
+      <div className="btn-add">
+        <Anchor href="/admin/immo/add">
+          <AiOutlineUserAdd className="btn-add-icon" />
+          Add new House
+        </Anchor>
+      </div>
+      <div className="overviewAdmin">
+        <table>
           <tr>
-            <td>{property.id}</td>
-            <td>{property.type}</td>
-            <td>{property.title}</td>
-            <td>
-              €
-              {millify(property.price)}
-              {' '}
-              (
-              {' '}
-              €
-              {property.price}
-              {' '}
-              )
-            </td>
-            <td>{property.adress}</td>
-            <td>
-              {property.size}
-              {' '}
-              m
-              {' '}
-              <sup>2</sup>
-            </td>
-            <td>
-              <FaBed />
-              {' '}
-              {property.amountBedrooms}
-            </td>
-            <td>
-              <FaBath />
-              {' '}
-              {property.amountBathrooms}
-            </td>
-            <td>
-              <button type="button" className="btn-primary" onClick={() => { handleClick(property.id); }}>
-                <FaTrash />
-              </button>
-            </td>
+            <th>ID</th>
+            <th>Type</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Adress</th>
+            <th>Size</th>
+            <th>Amount of bedrooms</th>
+            <th>Amount of bathrooms</th>
+            <th>Garden</th>
+            <th> </th>
           </tr>
-        ))}
+          {properties?.map((property) => (
+            <tr>
+              <td>{property.id}</td>
+              <td>{property.type}</td>
+              <td>{property.title}</td>
+              <td>
+                €
+                {millify(property.price)}
+                {' '}
+                (
+                {' '}
+                €
+                {property.price}
+                {' '}
+                )
+              </td>
+              <td>{property.adress}</td>
+              <td>
+                {property.size}
+                {' '}
+                m
+                {' '}
+                <sup>2</sup>
+              </td>
+              <td>
+                <FaBed />
+                {' '}
+                {property.amountBedrooms}
+              </td>
+              <td>
+                <FaBath />
+                {' '}
+                {property.amountBathrooms}
+              </td>
+              <td>
+                {property.garden ? 'Garden' : 'No Garden'}
+              </td>
+              <td>
+                <div className="clientButtons">
+                  <button type="button" className="btn-primary" onClick={() => { handleClick(property.id); }}>
+                    <FaTrash className="icon" />
+                  </button>
+                  <Anchor href={`${property.id}`}>
+                    <GrUserSettings className="icon" />
+                  </Anchor>
 
-      </table>
-    </div>
+                </div>
+
+              </td>
+            </tr>
+          ))}
+
+        </table>
+      </div>
+    </>
+
   );
 }
 

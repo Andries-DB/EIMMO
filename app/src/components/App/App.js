@@ -13,9 +13,10 @@ import OnboardingLayout from './Auth/OnboardingLayout';
 import PropertyDetail from './Screens/Public/PropertyDetail';
 import AdminDashboard from './Screens/Admin/AdminDashboard';
 import AdminImmoOverview from './Screens/Admin/AdminImmoOverview';
-import AdminLayout from './Screens/Admin/AdminLayout';
 import AddClient from './Screens/Admin/add/AddClient';
 import SettingsClient from './Screens/Admin/update/SettingsClient';
+import AddHouse from './Screens/Admin/add/AddHouse';
+import SettingsHouse from './Screens/Admin/update/SettingsHouse';
 
 function App() {
   return (
@@ -59,6 +60,8 @@ function App() {
         <Route path={AdminRoutes.HouseOverview} element={<AdminImmoOverview />} />
         <Route path={AdminRoutes.AddClient} element={<AddClient />} />
         <Route path={AdminRoutes.SettingsClient} element={<SettingsClient />} />
+        <Route path={AdminRoutes.AddHouse} element={<AddHouse />} />
+        <Route path={AdminRoutes.SettingsHouse} element={<SettingsHouse />} />
         <Route
           element={(
             <AuthContainer>

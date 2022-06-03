@@ -7,7 +7,9 @@ const AdminRoutes = {
   Dash: '/admin/dashboard',
   HouseOverview: '/admin/immo/overview',
   AddClient: '/admin/dashboard/add',
-  SettingsClient: 'admin/dashboard/client/:id'
+  SettingsClient: 'admin/dashboard/client/:id',
+  AddHouse: 'admin/immo/add',
+  SettingsHouse: 'admin/immo/:id'
 };
 const ImmoRoutes = {
   Search: '/search',
