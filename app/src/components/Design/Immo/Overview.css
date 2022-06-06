@@ -1,0 +1,47 @@
+.btn-add {
+  justify-content: end;
+  display: flex;
+  margin-right: 30px;
+}
+.searchpageWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  background-color: #f6a800;
+  border-bottom: 1px solid #f6a800;
+  font-weight: 700;
+  font-size: 10px;
+}
+
+.iconFilter {
+  margin-left: 10px;
+}
+
+.propertiesTitle {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.propertiesPage {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  width: 100%;
+}
+
+.noPropertiesPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 1rem 0rem;
+  width: 100%;
+  overflow: hidden;
+}

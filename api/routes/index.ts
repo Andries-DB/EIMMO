@@ -11,7 +11,7 @@ const registerAuthenticatedRoutes = (router: Router) => {
     const adminController = new AdminController();
     authRouter.get('/admin' , adminController.all);
     authRouter.get('/admin/:id' , adminController.find);
-    authRouter.post('/admin', adminController.create);
+
     authRouter.patch('/admin/:id' , adminController.update);
     authRouter.delete('/admin/:id', adminController.delete);
 
@@ -27,6 +27,9 @@ const registerNormalRoutes = (router: Router) => {
 
     const authController = new AuthController();
     router.post("/login", authLocal, authController.login);
+
+    const adminController = new AdminController();
+    router.post('/register', adminController.create);
     
     const immoController = new ImmoController();
     router.get("/immo", immoController.all);

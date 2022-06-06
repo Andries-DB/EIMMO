@@ -1,15 +1,15 @@
-const AuthRoutes = { Login: '/login', };
+const AuthRoutes = { Login: '/login', Register: '/register' };
 
 const BasicRoutes = { Index: '/', };
 
-const MakelaarRoutes = { Dash: '/immo/dashboard' };
+const MakelaarRoutes = { Dash: '/immo/dashboard', SettingsHouse: '/immo/search/:id', AddHouse: '/immo/add' };
 const AdminRoutes = {
   Dash: '/admin/dashboard',
   HouseOverview: '/admin/immo/overview',
   AddClient: '/admin/dashboard/add',
-  SettingsClient: 'admin/dashboard/client/:id',
-  AddHouse: 'admin/immo/add',
-  SettingsHouse: 'admin/immo/:id'
+  SettingsClient: '/admin/dashboard/client/:id',
+  AddHouse: '/admin/immo/add',
+  SettingsHouse: '/admin/immo/:id'
 };
 const ImmoRoutes = {
   Search: '/search',

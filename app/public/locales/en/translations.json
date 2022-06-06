@@ -14,7 +14,18 @@
       "Passw" : "Password",
       "PasswPlaceholder" : "Password"
     },
-    "Title" : "Login"
+    "Register" : {
+      "Email" : "Email",
+      "EmailPlaceholder" : "e.g. john.doe@gmail.com",
+      "Passw" : "Password",
+      "PasswPlaceholder" : "Password",
+      "name" : "Name",
+      "namePlaceholder" : "Your name",
+      "contact" : "Contact Name",
+      "contactPlaceholder" : "Your Contact name"
+    },
+    "LoginTitle" : "Login",
+    "RegisterTitle" : "Register"
   },
   "SearchPage": {
     "Title": "SearchPage",

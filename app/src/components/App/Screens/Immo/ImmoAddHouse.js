@@ -1,14 +1,14 @@
 import React from 'react';
-import ImmoOverview from '../../../Design/Immo/ImmoOverview';
+import AddForm from '../../../Design/Immo/Create/AddForm';
 import NavBar from '../../../Design/NavBar/Immo/NavBar';
 
-function ImmoDashboard() {
+function ImmoAddHouse() {
   return (
     <div>
       <NavBar />
-      <ImmoOverview />
+      <AddForm />
     </div>
   );
 }
 
-export default ImmoDashboard;
+export default ImmoAddHouse;

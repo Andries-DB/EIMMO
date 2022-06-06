@@ -1,4 +1,4 @@
- * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -49,11 +49,11 @@
 color: white;
 }
 
-.registerContainer {
-  margin-top: 8rem;
+.loginContainer {
+  margin-top: 19rem;
 }
 
-.registerButton {
+.loginButton {
   padding: .5rem 1rem;
   margin-top: 1rem;
   border: none;
@@ -62,7 +62,7 @@ color: white;
   border-radius: 1rem;
   transition: .2s ease;
   max-width: 160px;
-  margin-left: 5rem;
+  margin-left: 4.2rem;
   display: flex;
   text-transform: uppercase;
   justify-content: center;
@@ -70,7 +70,7 @@ color: white;
   text-decoration: none;
 }
 
-.registerButton:hover {
+.loginButton:hover {
   color: #f6a800;
   background: transparent;
   cursor: pointer;

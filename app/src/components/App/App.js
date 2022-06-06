@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import {
-  AdminRoutes, AuthRoutes, BasicRoutes, ImmoRoutes
+  AdminRoutes, AuthRoutes, BasicRoutes, ImmoRoutes, MakelaarRoutes
 } from '../../core/routing';
 import './App.css';
 import LandingPage from './Screens/Public/LandingPage';
@@ -17,6 +17,10 @@ import AddClient from './Screens/Admin/add/AddClient';
 import SettingsClient from './Screens/Admin/update/SettingsClient';
 import AddHouse from './Screens/Admin/add/AddHouse';
 import SettingsHouse from './Screens/Admin/update/SettingsHouse';
+import ImmoDashboard from './Screens/Immo/ImmoDashboard';
+import ImmoPropDetail from './Screens/Immo/ImmoPropDetail';
+import ImmoAddHouse from './Screens/Immo/ImmoAddHouse';
+import RegisterScreen from './Auth/Register/RegisterScreen';
 
 function App() {
   return (
@@ -25,6 +29,7 @@ function App() {
         {/* Login screen */ }
         <Route path={AuthRoutes.Index} element={<OnboardingLayout />}>
           <Route path={AuthRoutes.Login} element={<LoginScreen />} />
+          <Route path={AuthRoutes.Register} element={<RegisterScreen />} />
           <Route
             path="*"
             element={<Navigate to={AuthRoutes.Login} />}
@@ -70,6 +75,11 @@ function App() {
           )}
         >
         </Route>
+
+        {/* Real estate Agent */}
+        <Route path={MakelaarRoutes.Dash} element={<ImmoDashboard />} />
+        <Route path={MakelaarRoutes.SettingsHouse} element={<ImmoPropDetail />} />
+        <Route path={MakelaarRoutes.AddHouse} element={<ImmoAddHouse />} />
       </Routes>
     </AuthProvider>
   );

@@ -1,0 +1,20 @@
+.formContainer {
+  padding: 0px 100px;
+  margin-top: 100px;
+}
+
+input[type=text], input[type=email], input[type=password], input[type=number], input[type=file]{
+  width: 100%; 
+  padding: 12px;
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  box-sizing: border-box; 
+  margin-top: 6px; 
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, input[type=number]:focus {
+  outline: none;
+  border: 1px solid #f6a800;
+}
