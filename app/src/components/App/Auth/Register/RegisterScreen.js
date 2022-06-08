@@ -46,7 +46,7 @@ function RegisterScreen() {
       method: 'POST',
       data: values,
       onSuccess: () => {
-        navigate(AuthRoutes.login);
+        navigate(AuthRoutes.Login);
       },
     });
   };
