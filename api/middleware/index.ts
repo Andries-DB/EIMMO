@@ -10,7 +10,7 @@ const registerMiddleware = (app: Router) => {
     if (process.env.ENV === "production") {
         // in production we only allow the specific domain
         const corsOptions = {
-            origin: true,
+            origin: process.env.APP_URL,
             optionsSuccessStatus: 200,
         };
         app.use(cors(corsOptions));
