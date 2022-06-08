@@ -1,6 +1,6 @@
 import React from 'react';
 import AddForm from '../../../Design/Immo/Create/AddForm';
-import NavBar from '../../../Design/NavBar/Immo/NavBar';
+import NavBar from '../../../Design/NavBar/NavBar';
 
 function ImmoAddHouse() {
   return (

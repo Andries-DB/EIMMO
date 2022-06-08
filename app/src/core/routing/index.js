@@ -2,7 +2,9 @@ const AuthRoutes = { Login: '/login', Register: '/register' };
 
 const BasicRoutes = { Index: '/', };
 
-const MakelaarRoutes = { Dash: '/immo/dashboard', SettingsHouse: '/immo/search/:id', AddHouse: '/immo/add' };
+const MakelaarRoutes = {
+  Dash: '/immo/dashboard', SettingsHouse: '/immo/search/:id', AddHouse: '/immo/add', SettingsProfile: '/immo/settings'
+};
 const AdminRoutes = {
   Dash: '/admin/dashboard',
   HouseOverview: '/admin/immo/overview',
@@ -13,7 +15,8 @@ const AdminRoutes = {
 };
 const ImmoRoutes = {
   Search: '/search',
-  Detail: '/search/:id'
+  Detail: '/search/:id',
+
 };
 
 // replaces : values with values from object

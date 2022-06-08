@@ -1,6 +1,7 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
 import Admin from "../modules/Admin/Admin.entity";
+import Favorite from "../modules/Favorites/Favorite.entity";
 import Immo from "../modules/Immo/Immo.entity";
 
 export const AppDataSource = new DataSource({
@@ -12,7 +13,7 @@ export const AppDataSource = new DataSource({
     database: process.env.DB_NAME,
     synchronize: true,
     logging: false,
-    entities: [ Admin, Immo, ],
+    entities: [ Admin, Immo, Favorite],
     migrations: [],
     subscribers: [],
 });

@@ -12,10 +12,8 @@ import useForm from '../../../../core/hooks/useForm';
 import Label from '../../../Design/Form/Label';
 import Input from '../../../Design/Form/Input';
 import Alert from '../../../Design/Alert';
-import {
-  AdminRoutes, AuthRoutes, ImmoRoutes, MakelaarRoutes
-} from '../../../../core/routing';
-import NavBar from '../../../Design/NavBar/Public/NavBar';
+import { AuthRoutes, } from '../../../../core/routing';
+import NavBar from '../../../Design/NavBar/NavBar';
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),

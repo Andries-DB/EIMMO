@@ -4,6 +4,7 @@ import { authJwt, authLocal } from "../middleware/auth";
 import ImmoController from "../modules/Immo/Immo.controller";
 import AuthController from "../modules/Admin/Auth.controller";
 import AdminController from "../modules/Admin/Admin.controller";
+import FavoriteController from "../modules/Favorites/Favorite.controller";
 
 const registerAuthenticatedRoutes = (router: Router) => {
     const authRouter = Router();
@@ -19,6 +20,12 @@ const registerAuthenticatedRoutes = (router: Router) => {
     authRouter.post("/immo", immoController.create);
     authRouter.patch("/immo/:id", immoController.update);
     authRouter.delete("/immo/:id", immoController.delete);
+
+    const favoriteController = new FavoriteController();
+    authRouter.get('/favorite/:user_id' , favoriteController.all);
+    authRouter.get('/favorite/:id', favoriteController.find);
+    authRouter.post('/favorite' , favoriteController.create);
+    authRouter.delete('/favorite/:user_id/:immo_id' , favoriteController.delete);
     // authenticated routes use authJWT
     router.use(authJwt, authRouter);
 };

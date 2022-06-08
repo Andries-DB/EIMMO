@@ -122,3 +122,15 @@
   padding: 10px 25px;
   margin-top: 15px;
 }
+
+.buttons {
+  display: flex;
+}
+
+.icons {
+  size: 50px;
+}
+
+.icons {
+  vertical-align: top;
+}

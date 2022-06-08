@@ -1,21 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { FaBed, FaBath } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import { BsGridFill } from 'react-icons/bs';
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+import useMutation from '../../../../core/hooks/useMutation';
 import useFetch from '../../../../core/hooks/useFetch';
 import imageOne from '../../Public/MainSection/ImageSlider/data/images/house-1.jpg';
 import Button from '../../Button/Button';
 import '../Property.css';
 
 import useTitle from '../../../../core/hooks/useTitle';
+import Anchor from '../../Anchor/Anchor';
 
 function PropDetail() {
   const { id } = useParams();
 
   const { data: property } = useFetch(`/immo/${id}`);
+  const { mutate } = useMutation();
   const { t } = useTranslation();
   useTitle(property?.title);
+  const loggedinUser = JSON.parse(localStorage.getItem('loggedinUser'));
+  let role = 'CLIENT';
+  if (loggedinUser) {
+    role = loggedinUser.role;
+  }
+
+  const [Statefav, setSatefav] = useState(false);
+  const [Statenonfav, setSatefnonfav] = useState(true);
+  const handleAdd = () => {
+    mutate(`${process.env.REACT_APP_API_URL}/favorite`, {
+      method: 'POST',
+      data: [{ user_id: loggedinUser.id, immo_id: id }],
+      onSuccess: () => {
+        setSatefav(!Statefav);
+        setSatefnonfav(!Statenonfav);
+      },
+    });
+  };
+
+  const handleDelete = () => {
+    mutate(`${process.env.REACT_APP_API_URL}/favorite/${loggedinUser.id}/${id}`, {
+      method: 'DeLETE',
+      onSuccess: () => {
+        setSatefav(!Statefav);
+        setSatefnonfav(!Statenonfav);
+      },
+    });
+  };
+
   return (
     <div className="app">
       <div className="details">
@@ -31,7 +64,7 @@ function PropDetail() {
             </span>
           </div>
           <div>
-            {property?.adress}
+            {role === 'USER' || role === 'IMMO' || role === 'ADMIN' ? property?.adress : <Anchor color="secondary" href="/login">Log in to see the adress</Anchor>}
           </div>
           <div className="cardRooms">
             {property?.amountBedrooms}
@@ -50,15 +83,20 @@ function PropDetail() {
             </p>
             <BsGridFill />
           </div>
-          <Button
-            color="primary"
-            type="button"
-            className="btn"
-          >
-            {`${property?.type} this!`}
-          </Button>
-        </div>
+          {role === 'USER' || role === 'IMMO' || role === 'ADMIN' ? (
+            <div>
+              <button type="button" onClick={handleAdd} hidden={Statefav} className="btn btn-secondary btn-icons">
+                <AiOutlineHeart size={25} className="icons" />
+                {' '}
+              </button>
+              <button type="button" onClick={handleDelete} hidden={Statenonfav} className="btn btn-secondary btn-icons">
+                {' '}
+                <AiFillHeart size={25} className="icons" />
+              </button>
+            </div>
+          ) : ''}
 
+        </div>
       </div>
     </div>
 

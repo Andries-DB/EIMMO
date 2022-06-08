@@ -1,6 +1,6 @@
 import React from 'react';
 import CreateClientForm from '../../../../Design/Admin/Create/CreateClientForm';
-import NavBar from '../../../../Design/NavBar/Admin/NavBar';
+import NavBar from '../../../../Design/NavBar/NavBar';
 
 function AddClient() {
   return (

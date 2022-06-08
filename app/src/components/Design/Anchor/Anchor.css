@@ -30,3 +30,7 @@
   padding-right: 1rem;
   text-transform: uppercase;
 }
+
+.a-secondary:hover {
+  text-decoration: underline;
+}

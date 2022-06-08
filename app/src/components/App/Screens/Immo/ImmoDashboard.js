@@ -1,6 +1,6 @@
 import React from 'react';
 import ImmoOverview from '../../../Design/Immo/ImmoOverview';
-import NavBar from '../../../Design/NavBar/Immo/NavBar';
+import NavBar from '../../../Design/NavBar/NavBar';
 
 function ImmoDashboard() {
   return (

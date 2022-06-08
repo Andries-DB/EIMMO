@@ -15,7 +15,7 @@ import Alert from '../../../Design/Alert';
 import {
   AdminRoutes, BasicRoutes, ImmoRoutes, MakelaarRoutes
 } from '../../../../core/routing';
-import NavBar from '../../../Design/NavBar/Public/NavBar';
+import NavBar from '../../../Design/NavBar/NavBar';
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -44,7 +44,7 @@ function LoginScreen() {
       data: values,
       onSuccess: (data) => {
         login(data);
-        console.log(data);
+        localStorage.setItem('loggedinUser', JSON.stringify(data.user));
         if (data.user.role === 'ADMIN') {
           navigate(AdminRoutes.Dash);
         } else if (data.user.role === 'IMMO') {
@@ -53,7 +53,6 @@ function LoginScreen() {
       },
     });
   };
-
   return (
     <>
       <NavBar />
