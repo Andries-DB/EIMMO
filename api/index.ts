@@ -6,7 +6,7 @@ import { registerRoutes } from "./routes";
 
 AppDataSource.initialize()
     .then(async () => {
-        const PORT = process.env.PORT || 80
+        const PORT = process.env.PORT || 80;
         const app = express();
 
         // middleware
