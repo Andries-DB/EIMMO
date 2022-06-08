@@ -15,7 +15,7 @@ const registerMiddleware = (app: Router) => {
         };
         app.use(cors(corsOptions));
     } else {
-        app.use(cors());
+        app.use(cors({origin:true}));
     }
 
     app.use(bodyParser.json());

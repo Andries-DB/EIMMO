@@ -9,7 +9,6 @@ AppDataSource.initialize()
     .then(async () => {
         const PORT = process.env.PORT || 80;
         const app = express();
-        app.use(cors());
         // middleware
         registerMiddleware(app);
 
