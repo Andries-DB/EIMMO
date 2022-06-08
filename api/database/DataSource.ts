@@ -16,11 +16,11 @@ export const AppDataSource = new DataSource({
     entities: [ Admin, Immo, Favorite],
     migrations: [],
     subscribers: [],
-    ...(process.env.ENV === "production"
-        ? {
-              ssl: {
-                  rejectUnauthorized: false,
-              },
-          }
-        : {}),
+    ssl:
+        process.env.ENV == 'production'
+            ? {
+                rejectUnauthorized: false,
+              }
+            : false,
+            
 });
