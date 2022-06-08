@@ -3,12 +3,13 @@ import * as express from "express";
 import { AppDataSource } from "./database/DataSource";
 import { registerErrorHandler, registerMiddleware } from "./middleware";
 import { registerRoutes } from "./routes";
+import * as cors from "cors";
 
 AppDataSource.initialize()
     .then(async () => {
         const PORT = process.env.PORT || 80;
         const app = express();
-
+        app.use(cors());
         // middleware
         registerMiddleware(app);
 
