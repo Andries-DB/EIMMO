@@ -6,6 +6,7 @@ import { registerRoutes } from "./routes";
 
 AppDataSource.initialize()
     .then(async () => {
+        const PORT = process.env.PORT || 80
         const app = express();
 
         // middleware
@@ -18,7 +19,7 @@ AppDataSource.initialize()
         registerErrorHandler(app);
 
         // start express server
-        app.listen(process.env.PORT);
+        app.listen(PORT);
 
         if (process.env.ENV === "development") {
             console.log(
