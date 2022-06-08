@@ -7,6 +7,7 @@ import Logo from '../Logo/Logo';
 
 function NavBarItems({ navItems = [] }) {
   const { logout } = useAuthContext();
+  const onclick = () => logout;
   const loggedinUser = JSON.parse(localStorage.getItem('loggedinUser'));
   let role = 'CLIENT';
   if (loggedinUser) {
@@ -18,7 +19,7 @@ function NavBarItems({ navItems = [] }) {
       <Logo />
       <div className="NavMenu">
         {navItems.map((item) => <Anchor color="secondary" href={item.href}>{item.label}</Anchor>)}
-        {role === 'CLIENT' ? '' : <Button onClick={logout} color="secondary">Logout</Button>}
+        {role === 'CLIENT' ? '' : <Button onClick={onclick} color="secondary">Logout</Button>}
       </div>
 
     </nav>
