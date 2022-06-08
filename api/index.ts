@@ -18,7 +18,7 @@ AppDataSource.initialize()
         registerErrorHandler(app);
 
         // start express server
-        app.listen(process.env.PORT || 80);
+        app.listen(process.env.PORT);
 
         if (process.env.ENV === "development") {
             console.log(
