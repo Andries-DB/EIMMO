@@ -2,10 +2,8 @@
   "name": "api",
   "version": "1.0.0",
   "description": "",
-  "engines": {
-    "node": "17.x"
-  },
   "main": "index.js",
+  "license": "MIT",
   "dependencies": {
     "@nestjs/passport": "^8.2.1",
     "@types/bcrypt": "^5.0.0",
@@ -26,14 +24,14 @@
     "passport-local": "^1.0.0",
     "pg": "^8.7.3",
     "ts-node": "^10.7.0",
-    "typeorm": "^0.3.6"
+    "typeorm": "^0.3.6",
+    "typescript": "^4.6.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prod": "tsc && cp -v -r public build && node build/index.js"
   },
   "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@types/jsonwebtoken": "^8.5.8",
     "@types/passport": "^1.0.7",
@@ -42,7 +40,6 @@
     "@typescript-eslint/eslint-plugin": "^5.22.0",
     "@typescript-eslint/parser": "^5.22.0",
     "eslint": "^8.14.0",
-    "eslint-plugin-react": "^7.29.4",
-    "typescript": "^4.6.4"
+    "eslint-plugin-react": "^7.29.4"
   }
 }
