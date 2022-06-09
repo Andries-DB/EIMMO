@@ -8,6 +8,7 @@ import useTitle from '../../../../core/hooks/useTitle';
 import { AdminRoutes } from '../../../../core/routing';
 import Alert from '../../Alert';
 import Button from '../../Button/Button';
+import FileInput from '../../Form/FileInput';
 import Input from '../../Form/Input';
 import Label from '../../Form/Label';
 import './CreateForm.css';
@@ -21,7 +22,7 @@ const schema = yup.object().shape({
   amountBathrooms: yup.number().required(),
   amountBedrooms: yup.number().required(),
   garden: yup.bool().required(),
-  src: yup.string().required()
+  avatar: yup.string().required()
 });
 
 const defaultData = {
@@ -33,7 +34,7 @@ const defaultData = {
   amountBathrooms: '',
   amountBedrooms: '',
   garden: '',
-  src: ''
+  avatar: ''
 };
 
 function CreateHouseForm() {
@@ -156,16 +157,13 @@ function CreateHouseForm() {
           onChange={handleChange}
         />
 
-        <Label htmlFor="src">{t('Form.Photo')}</Label>
-        <Input
-          type="file"
-          id="src"
-          name="src"
-          placeholder="Select a photo"
-          value={values.src}
-          error={errors.src}
+        <Label htmlFor="avatar">{t('Form.Photo')}</Label>
+        <FileInput
+          name="avatar"
+          value={values.avatar}
           disabled={isLoading}
           onChange={handleChange}
+          error={errors.avatar}
         />
 
         <Button type="submit" disabled={isLoading}>{t('Button.Add')}</Button>

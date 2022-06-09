@@ -11,6 +11,7 @@ import Alert from '../../Alert';
 import Button from '../../Button/Button';
 import Input from '../../Form/Input';
 import Label from '../../Form/Label';
+import FileInput from '../../Form/FileInput';
 
 const schema = yup.object().shape({
   type: yup.string().required(),
@@ -21,7 +22,7 @@ const schema = yup.object().shape({
   amountBathrooms: yup.number().required(),
   amountBedrooms: yup.number().required(),
   garden: yup.bool().required(),
-  src: yup.string().required()
+  avatar: yup.string().required()
 });
 
 function SettingsHouseForm() {
@@ -46,13 +47,14 @@ function SettingsHouseForm() {
     amountBathrooms: data?.amountBathrooms,
     amountBedrooms: data?.amountBedrooms,
     garden: data?.garden,
-    src: data?.src
+    avatar: data?.avatar
   };
 
   const handleData = (values) => {
     mutate(`${process.env.REACT_APP_API_URL}/immo/${id}`, {
       method: 'PATCH',
       data: values,
+      multipart: true,
       onSuccess: () => {
         navigate(AdminRoutes.HouseOverview);
       },
@@ -162,16 +164,13 @@ function SettingsHouseForm() {
           onChange={handleChange}
         />
 
-        <Label htmlFor="src">{t('Form.Photo')}</Label>
-        <Input
-          type="file"
-          id="src"
-          name="src"
-          placeholder={`Current Photo: '${defaultData?.src}'`}
-          value={values.src}
-          error={errors.src}
+        <Label htmlFor="avatar">{t('Form.Photo')}</Label>
+        <FileInput
+          name="avatar"
+          value={values.avatar}
           disabled={isLoading}
           onChange={handleChange}
+          error={errors.avatar}
         />
 
         <Button type="submit" disabled={isLoading}>{t('Button.Save')}</Button>
