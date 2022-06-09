@@ -2,8 +2,9 @@ import { useTranslation } from 'react-i18next';
 import React from 'react';
 import Anchor from '../../Anchor/Anchor';
 import './infoSection.css';
+import Photo from '../../pictures/HouseCover.jpg';
 
-function infoSection({ image }) {
+function infoSection() {
   const { t } = useTranslation();
 
   return (
@@ -18,7 +19,7 @@ function infoSection({ image }) {
           </div>
         </div>
         <div className="columnRight">
-          <img alt="Home" src={image}></img>
+          <img alt="Home" src={Photo}></img>
         </div>
       </div>
     </section>

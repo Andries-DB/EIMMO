@@ -1,10 +1,13 @@
 import { NextFunction, Request, Response, Router } from "express";
+import * as express from "express";
 import NotFoundError from "../errors/NotFoundError";
 import { authJwt, authLocal } from "../middleware/auth";
 import ImmoController from "../modules/Immo/Immo.controller";
 import AuthController from "../modules/Admin/Auth.controller";
 import AdminController from "../modules/Admin/Admin.controller";
 import FavoriteController from "../modules/Favorites/Favorite.controller";
+import * as path from "path";
+import { UPLOAD_FOLDER } from "../constants";
 
 const registerAuthenticatedRoutes = (router: Router) => {
     const authRouter = Router();
@@ -44,6 +47,7 @@ const registerNormalRoutes = (router: Router) => {
 } 
 
 const registerRoutes = (app: Router) => {
+    app.use("/public", express.static(path.resolve(__dirname, "../public")));
     // onboarding routes (login, ...)
     registerNormalRoutes(app);
     // authenticated routes (authentication required)

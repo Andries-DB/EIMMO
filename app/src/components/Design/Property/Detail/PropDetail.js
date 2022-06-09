@@ -6,11 +6,12 @@ import { BsGridFill } from 'react-icons/bs';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import useMutation from '../../../../core/hooks/useMutation';
 import useFetch from '../../../../core/hooks/useFetch';
-import imageOne from '../../Public/MainSection/ImageSlider/data/images/house-1.jpg';
 import '../Property.css';
 
 import useTitle from '../../../../core/hooks/useTitle';
 import Anchor from '../../Anchor/Anchor';
+import isVoid from '../../../../core/helpers/isVoid';
+import { getImagePath } from '../../../../core/helpers/api';
 
 function PropDetail() {
   const { id } = useParams();
@@ -52,7 +53,12 @@ function PropDetail() {
     <div className="app">
       <div className="details">
         <div className="big-img">
-          <img src={imageOne} alt={property?.title} />
+          {!isVoid(property?.avatar) && (
+          <img
+            src={getImagePath(property?.avatar)}
+            alt={property?.title}
+          />
+          )}
         </div>
         <div className="box">
           <div className="row">

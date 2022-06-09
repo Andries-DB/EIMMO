@@ -23,7 +23,7 @@ export default class Immo extends BaseEntity {
 
     @IsDefined()
     @Column()
-    src : string;
+    avatar : string;
 
     @IsDefined()
     @Column()

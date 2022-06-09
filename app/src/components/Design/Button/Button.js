@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import './Button.css';
@@ -9,18 +10,20 @@ function Button(
     color = 'primary',
     disabled = false,
     type,
+    href
   }
 ) {
   const navigate = useNavigate();
 
+  if (href) {
+    return (
+      <a href={href}>
+        {children}
+      </a>
+    );
+  }
   return (
-    <button
-      className={`btn btn-${color}`}
-      onClick={() => navigate(`${onClick}`)}
-      disabled={disabled}
-      // eslint-disable-next-line react/button-has-type
-      type={type}
-    >
+    <button type={type} onClick={onClick} className={`btn btn-${color}`} disabled={disabled}>
       {children}
     </button>
   );
@@ -28,6 +31,7 @@ function Button(
 
 Button.propTypes = {
   children: PropTypes.string,
+  href: PropTypes.string,
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
   color: PropTypes.oneOf([
@@ -41,6 +45,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
+  href: '',
   onClick: '',
   children: '',
   disabled: false,

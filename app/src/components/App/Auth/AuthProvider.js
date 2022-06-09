@@ -33,6 +33,7 @@ function AuthProvider({ children }) {
 
   const handleLogout = () => {
     setAuth(null);
+    localStorage.removeItem('loggedinUser');
   };
 
   const handleLogin = (auth) => {

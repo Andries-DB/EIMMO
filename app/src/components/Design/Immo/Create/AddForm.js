@@ -7,6 +7,7 @@ import useMutation from '../../../../core/hooks/useMutation';
 import useTitle from '../../../../core/hooks/useTitle';
 import { MakelaarRoutes } from '../../../../core/routing';
 import Alert from '../../Alert';
+import FileInput from '../../Form/FileInput';
 import Button from '../../Button/Button';
 import Input from '../../Form/Input';
 import Label from '../../Form/Label';
@@ -21,7 +22,7 @@ const schema = yup.object().shape({
   amountBathrooms: yup.number().required(),
   amountBedrooms: yup.number().required(),
   garden: yup.bool().required(),
-  src: yup.string()
+  avatar: yup.string()
 });
 
 const defaultData = {
@@ -33,7 +34,7 @@ const defaultData = {
   amountBathrooms: '',
   amountBedrooms: '',
   garden: '',
-  src: ''
+  avatar: ''
 };
 
 function AddForm() {
@@ -45,6 +46,7 @@ function AddForm() {
     mutate(`${process.env.REACT_APP_API_URL}/immo`, {
       method: 'POST',
       data,
+      multipart: true,
       onSuccess: () => {
         navigate(MakelaarRoutes.Dash);
       },
@@ -155,16 +157,13 @@ function AddForm() {
           onChange={handleChange}
         />
 
-        <Label htmlFor="src">{t('Form.Photo')}</Label>
-        <Input
-          type="file"
-          id="src"
-          name="src"
-          placeholder="Select a photo"
-          value={values.src}
-          error={errors.src}
+        <Label htmlFor="avatar">{t('Form.Photo')}</Label>
+        <FileInput
+          name="avatar"
+          value={values.avatar}
           disabled={isLoading}
           onChange={handleChange}
+          error={errors.avatar}
         />
 
         <Button type="submit" disabled={isLoading}>{t('Button.Add')}</Button>

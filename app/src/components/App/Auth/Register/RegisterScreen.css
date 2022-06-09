@@ -5,11 +5,13 @@
 }
  
  .container {
-  background-image: url(../../../Design/Public/MainSection/ImageSlider/data/images/house-1.jpg);
-  background-size:cover;
+  background-image: url(../../../Design/pictures/HouseCover.jpg);
   display: flex;
   justify-content: center;
   align-items: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .mainContainer {

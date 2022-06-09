@@ -4,11 +4,12 @@ import './Property.css';
 import { FaBed, FaBath } from 'react-icons/fa';
 import { BsGridFill } from 'react-icons/bs';
 import { GoVerified } from 'react-icons/go';
-import imageOne from '../Public/MainSection/ImageSlider/data/images/house-1.jpg';
+import isVoid from '../../../core/helpers/isVoid';
+import { getImagePath } from '../../../core/helpers/api';
 
 function Property({
   property: {
-    img, price, title, amountBedrooms, amountBathrooms, size, id
+    avatar, price, title, amountBedrooms, amountBathrooms, size, id
   }
 }) {
   return (
@@ -16,7 +17,12 @@ function Property({
       <a href={`search/${id}`} passhref="true">
         <div className="cardContainer">
           <div className="cardImage">
-            <img src={imageOne} alt={title} />
+            {!isVoid(avatar) && (
+            <img
+              src={getImagePath(avatar)}
+              alt={title}
+            />
+            )}
           </div>
           <div className="cardInfo">
             <div className="cardDetails">

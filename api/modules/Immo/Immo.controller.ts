@@ -3,6 +3,20 @@ import { NextFunction, Request, Response } from "express";
 import NotFoundError from "../../errors/NotFoundError";
 import ImmoService from "./Immo.service";
 import { ImmoBody } from "./Immo.types";
+import { UploadedFile } from "express-fileupload";
+import { UPLOAD_FOLDER } from "../../constants";
+
+const getAvatar = (req: Request) => {
+    if (req.files.avatar) {
+        const avatar: UploadedFile = Array.isArray(req.files.avatar)
+            ? req.files.avatar[0]
+            : req.files.avatar;
+        const path = `${UPLOAD_FOLDER}/${new Date().getTime()}_${avatar.name}`;
+        avatar.mv(path);
+        return path;
+    }
+    return null;
+};
 
 export default class ImmoController {
     private immoService: ImmoService;
@@ -36,6 +50,10 @@ export default class ImmoController {
         res: Response,
         next: NextFunction
     ) => {
+        const avatar = getAvatar(req);
+        if (avatar) {
+            req.body.avatar = avatar;
+        }
         const immo = await this.immoService.create(req.body);
         return res.json(immo);
     };
@@ -45,6 +63,10 @@ export default class ImmoController {
         res: Response,
         next: NextFunction
     ) => {
+        const avatar = getAvatar(req);
+        if (avatar) {
+            req.body.avatar = avatar;
+        }
         const immo = await this.immoService.update(
             parseInt(req.params.id),
             req.body

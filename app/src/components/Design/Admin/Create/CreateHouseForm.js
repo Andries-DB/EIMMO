@@ -1,4 +1,3 @@
-import { t } from 'i18next';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
@@ -46,6 +45,7 @@ function CreateHouseForm() {
     mutate(`${process.env.REACT_APP_API_URL}/immo`, {
       method: 'POST',
       data,
+      multipart: true,
       onSuccess: () => {
         navigate(AdminRoutes.HouseOverview);
       },
