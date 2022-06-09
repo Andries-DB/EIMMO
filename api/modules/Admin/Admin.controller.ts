@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express";
+import { NextFunction, Response } from "express";
 import NotFoundError from "../../errors/NotFoundError";
 import { AuthRequest } from "../../middleware/auth/auth.types";
 import AdminService from "./Admin.service";

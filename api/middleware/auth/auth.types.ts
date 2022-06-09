@@ -1,7 +1,6 @@
 import { Request } from "express";
 import Admin from "../../modules/Admin/Admin.entity";
 
-
 // this might be done better, but quick fix for now
 export interface AuthRequest<
     P = void,

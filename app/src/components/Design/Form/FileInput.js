@@ -1,5 +1,3 @@
-/* eslint-disable react/forbid-prop-types */
-/* eslint-disable react/require-default-props */
 import { useRef } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';

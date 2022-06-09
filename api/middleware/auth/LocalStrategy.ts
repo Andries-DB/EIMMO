@@ -1,5 +1,4 @@
 import Admin from "../../modules/Admin/Admin.entity";
-
 import * as LocalStrategy from 'passport-local/lib'
 import AdminService from "../../modules/Admin/Admin.service";
 

@@ -46,7 +46,4 @@ export default class Immo extends BaseEntity {
     @Column()
     garden : boolean;
 
-    @OneToMany(() => Favorite, (favorite) => favorite.immo_id, {
-        cascade: true,
-    })
 }

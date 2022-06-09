@@ -32,6 +32,8 @@ module.exports = {
     'react/prop-types': 0,
     'react/jsx-no-constructed-context-values': 0,
     'react/jsx-props-no-spreading': 0,
+    'react/forbid-prop-types': 0,
+    'react/require-default-props': 0,
     'comma-dangle': 0,
     'react/jsx-uses-vars': 1,
     'react/display-name': 1,

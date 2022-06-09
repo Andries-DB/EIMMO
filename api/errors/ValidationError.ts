@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-types */
 import BaseError from "./BaseError";
 
 export default class ValidationError extends BaseError {

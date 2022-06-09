@@ -28,10 +28,7 @@ export default class Admin extends BaseEntity {
     })
     role: AdminRole;
 
-    @OneToMany(() => Favorite, (favorite) => favorite.user_id, {
-        cascade: true,
-    })
-    
+ 
     @BeforeInsert()
     async hashPassword() {
         if (this.password) {

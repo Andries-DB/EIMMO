@@ -1,5 +1,4 @@
 import { Repository } from "typeorm";
-
 import { AppDataSource } from "../../database/DataSource";
 import Immo from "./Immo.entity";
 import { ImmoBody } from "./Immo.types";

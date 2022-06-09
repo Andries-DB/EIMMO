@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-types */
 export default class BaseError extends Error {
   public errors: {};
   public message: string;

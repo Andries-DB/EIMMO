@@ -1,9 +1,15 @@
-const AuthRoutes = { Login: '/login', Register: '/register' };
+const AuthRoutes = {
+  Login: '/login',
+  Register: '/register'
+};
 
 const BasicRoutes = { Index: '/', };
 
 const MakelaarRoutes = {
-  Dash: '/immo/dashboard', SettingsHouse: '/immo/search/:id', AddHouse: '/immo/add', SettingsProfile: '/immo/settings'
+  Dash: '/immo/dashboard',
+  SettingsHouse: '/immo/search/:id',
+  AddHouse: '/immo/add',
+  SettingsProfile: '/immo/settings'
 };
 const AdminRoutes = {
   Dash: '/admin/dashboard',

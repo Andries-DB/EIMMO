@@ -7,7 +7,6 @@ import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import useMutation from '../../../../core/hooks/useMutation';
 import useFetch from '../../../../core/hooks/useFetch';
 import '../Property.css';
-
 import useTitle from '../../../../core/hooks/useTitle';
 import Anchor from '../../Anchor/Anchor';
 import isVoid from '../../../../core/helpers/isVoid';

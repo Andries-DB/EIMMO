@@ -1,6 +1,5 @@
 /* eslint-disable react/button-has-type */
 import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
 import './Button.css';
 
 function Button(
@@ -13,8 +12,6 @@ function Button(
     href
   }
 ) {
-  const navigate = useNavigate();
-
   if (href) {
     return (
       <a href={href}>
