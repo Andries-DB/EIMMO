@@ -1,6 +1,7 @@
 import { compare, hash } from "bcrypt";
-import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BeforeInsert, Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { BaseEntity } from "../BaseEntity";
+import Favorite from "../Favorites/Favorite.entity";
 import { AdminRole } from "./Admin.constants";
 
 @Entity()
@@ -27,6 +28,9 @@ export default class Admin extends BaseEntity {
     })
     role: AdminRole;
 
+    @OneToMany(() => Favorite, (favorite) => favorite.user_id, {
+        cascade: true,
+    })
     @BeforeInsert()
     async hashPassword() {
         if (this.password) {

@@ -1,6 +1,8 @@
 import { IsDefined } from "class-validator";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
+import Admin from "../Admin/Admin.entity";
 import { BaseEntity } from "../BaseEntity";
+import Immo from "../Immo/Immo.entity";
 
 
 @Entity()
@@ -9,13 +11,10 @@ export default class Favorite extends BaseEntity {
     @PrimaryGeneratedColumn()
     id : number;
 
-    @IsDefined()
-    @Column()
-    user_id : number;
+    @ManyToOne(() => Admin, (admin) => admin.name)
+    user_id: Admin
 
-    @IsDefined()
-    @Column()
-    immo_id : number;
+    @ManyToOne(() => Immo, (immo) => immo.title)
+    immo_id: Immo
 
-    
 }

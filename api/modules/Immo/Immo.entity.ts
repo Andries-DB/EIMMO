@@ -1,6 +1,7 @@
 import { IsDefined } from "class-validator";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { BaseEntity } from "../BaseEntity";
+import Favorite from "../Favorites/Favorite.entity";
 
 
 @Entity()
@@ -44,5 +45,9 @@ export default class Immo extends BaseEntity {
     @IsDefined()
     @Column()
     garden : boolean;
+
+    @OneToMany(() => Favorite, (favorite) => favorite.immo_id, {
+        cascade: true,
+    })
     
 }
