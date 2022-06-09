@@ -49,5 +49,4 @@ export default class Immo extends BaseEntity {
     @OneToMany(() => Favorite, (favorite) => favorite.immo_id, {
         cascade: true,
     })
-    
 }
