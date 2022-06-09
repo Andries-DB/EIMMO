@@ -1,11 +1,12 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import * as yup from 'yup';
+import { useTranslation } from 'react-i18next';
 import useFetch from '../../../../core/hooks/useFetch';
 import useForm from '../../../../core/hooks/useForm';
 import useMutation from '../../../../core/hooks/useMutation';
 import useTitle from '../../../../core/hooks/useTitle';
-import { AdminRoutes, MakelaarRoutes } from '../../../../core/routing';
+import { MakelaarRoutes } from '../../../../core/routing';
 import Alert from '../../Alert';
 import Button from '../../Button/Button';
 import Input from '../../Form/Input';
@@ -26,7 +27,7 @@ const schema = yup.object().shape({
 function ImmoDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
-
+  const { t } = useTranslation();
   // Fetches & Mutations
   const { isLoading, error, mutate } = useMutation();
   const { data } = useFetch(`/immo/${id}`);
@@ -64,7 +65,7 @@ function ImmoDetail() {
     <div className="formContainer">
       <form onSubmit={handleSubmit(handleData)} noValidate>
         {error && <Alert color="danger">{error}</Alert>}
-        <Label htmlFor="title">Title</Label>
+        <Label htmlFor="title">{t('Form.Title')}</Label>
         <Input
           type="text"
           id="title"
@@ -76,7 +77,7 @@ function ImmoDetail() {
           onChange={handleChange}
         />
 
-        <Label htmlFor="type">Type</Label>
+        <Label htmlFor="type">{t('Form.Type')}</Label>
         <Input
           type="text"
           id="type"
@@ -88,7 +89,7 @@ function ImmoDetail() {
           onChange={handleChange}
         />
 
-        <Label htmlFor="price">Price</Label>
+        <Label htmlFor="price">{t('Form.Price')}</Label>
         <Input
           type="number"
           id="price"
@@ -100,7 +101,7 @@ function ImmoDetail() {
           onChange={handleChange}
         />
 
-        <Label htmlFor="adress">Adress</Label>
+        <Label htmlFor="adress">{t('Form.Adress')}</Label>
         <Input
           type="text"
           id="adress"
@@ -112,7 +113,7 @@ function ImmoDetail() {
           onChange={handleChange}
         />
 
-        <Label htmlFor="size">Size</Label>
+        <Label htmlFor="size">{t('Form.Size')}</Label>
         <Input
           type="number"
           id="size"
@@ -124,7 +125,7 @@ function ImmoDetail() {
           onChange={handleChange}
         />
 
-        <Label htmlFor="amountBedrooms">Bedrooms</Label>
+        <Label htmlFor="amountBedrooms">{t('Form.Bedrooms')}</Label>
         <Input
           type="number"
           id="amountBedrooms"
@@ -136,7 +137,7 @@ function ImmoDetail() {
           onChange={handleChange}
         />
 
-        <Label htmlFor="amountBathrooms">Bathrooms</Label>
+        <Label htmlFor="amountBathrooms">{t('Form.Bathrooms')}</Label>
         <Input
           type="text"
           id="amountBathrooms"
@@ -148,7 +149,7 @@ function ImmoDetail() {
           onChange={handleChange}
         />
 
-        <Label htmlFor="garden">Garden</Label>
+        <Label htmlFor="garden">{t('Form.Garden')}</Label>
         <Input
           type="text"
           id="garden"
@@ -160,7 +161,7 @@ function ImmoDetail() {
           onChange={handleChange}
         />
 
-        <Label htmlFor="src">Photo</Label>
+        <Label htmlFor="src">{t('Form.Photo')}</Label>
         <Input
           type="file"
           id="src"
@@ -172,7 +173,7 @@ function ImmoDetail() {
           onChange={handleChange}
         />
 
-        <Button type="submit" disabled={isLoading}>Save</Button>
+        <Button type="submit" disabled={isLoading}>{t('Button.Save')}</Button>
       </form>
     </div>
   );

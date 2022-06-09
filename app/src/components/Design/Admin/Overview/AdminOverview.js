@@ -2,12 +2,16 @@ import React from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { AiOutlineUserAdd } from 'react-icons/ai';
 import { GrUserSettings } from 'react-icons/gr';
+import { useTranslation } from 'react-i18next';
+import useTitle from '../../../../core/hooks/useTitle';
 import useFetch from '../../../../core/hooks/useFetch';
 import useMutation from '../../../../core/hooks/useMutation';
 import Anchor from '../../Anchor/Anchor';
 import './Overview.css';
 
 function AdminOverview() {
+  const { t } = useTranslation();
+  useTitle(t('Titles.ClientDashboard'));
   const { mutate } = useMutation();
   const { data: users } = useFetch('/admin');
   const handleClick = (id) => {
@@ -23,18 +27,18 @@ function AdminOverview() {
       <div className="btn-add">
         <Anchor href="/admin/dashboard/add">
           <AiOutlineUserAdd className="btn-add-icon" />
-          Add new Client
+          {t('Button.AddClient')}
         </Anchor>
       </div>
       <div className="overviewAdmin">
 
         <table>
           <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>ContactName</th>
-            <th>Email</th>
-            <th>Role</th>
+            <th>{t('Form.ID')}</th>
+            <th>{t('Form.Name')}</th>
+            <th>{t('Form.ContactName')}</th>
+            <th>{t('Form.Email')}</th>
+            <th>{t('Form.Role')}</th>
             <th> </th>
           </tr>
           {users?.map((user) => (

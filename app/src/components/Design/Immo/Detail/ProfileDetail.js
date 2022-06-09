@@ -1,5 +1,6 @@
 import React from 'react';
 import * as yup from 'yup';
+import { useTranslation } from 'react-i18next';
 import useFetch from '../../../../core/hooks/useFetch';
 import useForm from '../../../../core/hooks/useForm';
 import useMutation from '../../../../core/hooks/useMutation';
@@ -18,7 +19,7 @@ const schema = yup.object().shape({
 
 function ProfileDetail() {
   // Basic variables
-
+  const { t } = useTranslation();
   const loggedinUser = JSON.parse(localStorage.getItem('loggedinUser'));
   const { id } = loggedinUser;
   // Fetches & Mutations
@@ -52,7 +53,7 @@ function ProfileDetail() {
     <div className="formContainer">
       <form onSubmit={handleSubmit(handleData)}>
         {error && <Alert color="danger">{error}</Alert>}
-        <Label htmlFor="name">Name</Label>
+        <Label htmlFor="name">{t('Form.Name')}</Label>
         <Input
           type="text"
           id="name"
@@ -64,7 +65,7 @@ function ProfileDetail() {
           onChange={handleChange}
         />
 
-        <Label htmlFor="contactName">Contact Name</Label>
+        <Label htmlFor="contactName">{t('Form.ContactName')}</Label>
         <Input
           type="text"
           id="contactName"
@@ -76,7 +77,7 @@ function ProfileDetail() {
           onChange={handleChange}
         />
 
-        <Label htmlFor="email">Email</Label>
+        <Label htmlFor="email">{t('Form.Email')}</Label>
         <Input
           type="email"
           id="email"
@@ -88,7 +89,7 @@ function ProfileDetail() {
           onChange={handleChange}
         />
 
-        <Label htmlFor="role">Role</Label>
+        <Label htmlFor="role">{t('Form.Role')}</Label>
         <Input
           type="text"
           id="role"
@@ -99,7 +100,7 @@ function ProfileDetail() {
           onChange={handleChange}
         />
 
-        <Button type="submit" disabled={isLoading}>Save</Button>
+        <Button type="submit" disabled={isLoading}>{t('Button.Save')}</Button>
       </form>
     </div>
   );

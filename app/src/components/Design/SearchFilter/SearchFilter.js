@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './SearchFilter.css';
 import useTitle from '../../../core/hooks/useTitle';
-import { filterData, getFilterValues } from '../../../core/hooks/useFilter';
+import { filterData } from '../../../core/hooks/useFilter';
 
 function SearchFilter() {
   const { t } = useTranslation();
   const [filters, setFilters] = useState(filterData);
-  useTitle(t('SearchPage.SearchFilter.Title'));
+  useTitle(t('Titles.SearchFilter'));
 
   return (
     <div className="filterwrapper">

@@ -15,7 +15,7 @@ function ImmoOverview() {
   const onClick = () => setSearchFilter(!searchFilter);
 
   const { t } = useTranslation();
-  useTitle(t('SearchPage.Title'));
+  useTitle(t('Titles.SearchPage'));
   return (
     <div className="overviewImmo">
 
@@ -32,7 +32,7 @@ function ImmoOverview() {
         <div className="btn-add">
           <Anchor href="/immo/add">
             <AiOutlineUserAdd className="btn-add-icon" />
-            Add new House
+            {t('Button.AddHouse')}
           </Anchor>
         </div>
         <div className="propertiesPage">

@@ -3,16 +3,16 @@ import React from 'react';
 import { FaBath, FaBed, FaTrash, } from 'react-icons/fa';
 import { GrUserSettings } from 'react-icons/gr';
 import { AiOutlineUserAdd } from 'react-icons/ai';
+import { useTranslation } from 'react-i18next';
 import useFetch from '../../../../core/hooks/useFetch';
-
-import Loading from '../../Loading/Loading';
-import Alert from '../../Alert';
+import useTitle from '../../../../core/hooks/useTitle';
 import useMutation from '../../../../core/hooks/useMutation';
 import Anchor from '../../Anchor/Anchor';
 
 function PropertiesOverview() {
+  const { t } = useTranslation();
+  useTitle(t('Titles.HouseDashboard'));
   const { mutate } = useMutation();
-
   const { data: properties } = useFetch('/immo');
 
   const handleClick = (id) => {
@@ -29,21 +29,21 @@ function PropertiesOverview() {
       <div className="btn-add">
         <Anchor href="/admin/immo/add">
           <AiOutlineUserAdd className="btn-add-icon" />
-          Add new House
+          {t('Button.AddHouse')}
         </Anchor>
       </div>
       <div className="overviewAdmin">
         <table>
           <tr>
-            <th>ID</th>
-            <th>Type</th>
-            <th>Title</th>
-            <th>Price</th>
-            <th>Adress</th>
-            <th>Size</th>
-            <th>Amount of bedrooms</th>
-            <th>Amount of bathrooms</th>
-            <th>Garden</th>
+            <th>{t('Form.ID')}</th>
+            <th>{t('Form.Type')}</th>
+            <th>{t('Form.Title')}</th>
+            <th>{t('Form.Price')}</th>
+            <th>{t('Form.Adress')}</th>
+            <th>{t('Form.Size')}</th>
+            <th>{t('Form.Bedrooms')}</th>
+            <th>{t('Form.Bathrooms')}</th>
+            <th>{t('Form.Garden')}</th>
             <th> </th>
           </tr>
           {properties?.map((property) => (

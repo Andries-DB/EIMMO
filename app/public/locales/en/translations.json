@@ -13,7 +13,8 @@
       "Email" : "Email",
       "EmailPlaceholder" : "e.g. john.doe@gmail.com",
       "Passw" : "Password",
-      "PasswPlaceholder" : "Password"
+      "PasswPlaceholder" : "Password",
+      "NoAcc" : "Don't have an account yet?"
     },
     "Register" : {
       "Email" : "Email",
@@ -23,21 +24,17 @@
       "name" : "Name",
       "namePlaceholder" : "Your name",
       "contact" : "Contact Name",
-      "contactPlaceholder" : "Your Contact name"
+      "contactPlaceholder" : "Your Contact name",
+      "AlreadyAcc" : "Already have an account?"
     },
     "LoginTitle" : "Login",
     "RegisterTitle" : "Register"
   },
   "SearchPage": {
-    "Title": "SearchPage",
     "Description": "Search property by filters",
     "Prop" : "Properties",
     "Results" : {
       "NoResult" : "No Results"
-    },
-    "SearchFilter": {
-      "Title" : "SearchPage & Searchfilter",
-      "Description" : "Searchfilter is open"
     }
   },
   "InfoSection" : {
@@ -50,6 +47,38 @@
     "GoBack" : "Go back",
     "Logout" : "Logout",
     "Login" : "LogIn",
-    "Register" : "Register"
+    "Register" : "Register",
+    "Add" : "Add",
+    "AddClient" : "Add new client",
+    "AddHouse" : "Add new house",
+    "Save" : "Save",
+    "SeeAdress": "Log in to see the adress"
+  },
+  "Form" : {
+    "Name" : "Name",
+    "ContactName": "Contact name",
+    "Email" : "Email",
+    "Role" : "Role",
+    "Password": "Password",
+    "Title": "Title",
+    "Type": "Type",
+    "Price": "Price",
+    "Adress": "Adress",
+    "Size": "Size",
+    "Bedrooms": "Bedrooms",
+    "Bathrooms": "Bathrooms",
+    "Garden" : "Garden",
+    "Photo": "Photo",
+    "ID" : "ID"
+  },
+  "Titles" : {
+    "AddClient" : "Add a new Client",
+    "AddHouse" : "Add a new House",
+    "SearchFilter" : "Search Page & Searchfilter",
+    "SearchPage": "Search Page",
+    "Login" : "Login",
+    "Register" : "Register",
+    "ClientDashboard" : "Client Dashboard",
+    "HouseDashboard" : "House Dashboard"
   }
 }

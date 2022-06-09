@@ -4,7 +4,6 @@ import './LoginScreen.css';
 import * as yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import useMutation from '../../../../core/hooks/useMutation';
-import Anchor from '../../../Design/Anchor/Anchor';
 import useTitle from '../../../../core/hooks/useTitle';
 import { useAuthContext } from '../AuthProvider';
 import Button from '../../../Design/Button/Button';
@@ -12,9 +11,7 @@ import useForm from '../../../../core/hooks/useForm';
 import Label from '../../../Design/Form/Label';
 import Input from '../../../Design/Form/Input';
 import Alert from '../../../Design/Alert';
-import {
-  AdminRoutes, BasicRoutes, ImmoRoutes, MakelaarRoutes
-} from '../../../../core/routing';
+import { AdminRoutes, ImmoRoutes, MakelaarRoutes } from '../../../../core/routing';
 import NavBar from '../../../Design/NavBar/NavBar';
 
 const schema = yup.object().shape({
@@ -32,7 +29,7 @@ function LoginScreen() {
   const navigate = useNavigate();
   const { login } = useAuthContext();
   const { isLoading, error, mutate } = useMutation();
-  useTitle(t('LoginScreen.Title'));
+  useTitle(t('Titles.Login'));
 
   const {
     values, errors, handleChange, handleSubmit
@@ -89,10 +86,10 @@ function LoginScreen() {
           </form>
           <div className="registerContainer">
             <div>
-              <h5>Don't have an account yet?</h5>
+              <h5>{t('LoginScreen.Login.NoAcc')}</h5>
             </div>
             <div>
-              <a href="/register" className="registerButton">Register</a>
+              <a href="/register" className="registerButton">{t('LoginScreen.RegisterTitle')}</a>
             </div>
 
           </div>

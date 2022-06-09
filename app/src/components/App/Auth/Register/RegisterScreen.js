@@ -4,9 +4,7 @@ import './RegisterScreen.css';
 import * as yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import useMutation from '../../../../core/hooks/useMutation';
-import Anchor from '../../../Design/Anchor/Anchor';
 import useTitle from '../../../../core/hooks/useTitle';
-import { useAuthContext } from '../AuthProvider';
 import Button from '../../../Design/Button/Button';
 import useForm from '../../../../core/hooks/useForm';
 import Label from '../../../Design/Form/Label';
@@ -33,9 +31,8 @@ const defaultData = {
 function RegisterScreen() {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { login } = useAuthContext();
   const { isLoading, error, mutate } = useMutation();
-  useTitle(t('LoginScreen.Title'));
+  useTitle(t('Titles.Register'));
 
   const {
     values, errors, handleChange, handleSubmit
@@ -112,7 +109,7 @@ function RegisterScreen() {
           </form>
           <div className="loginContainer">
             <div>
-              <h5>Already have an account?</h5>
+              <h5>{t('LoginScreen.Register.AlreadyAcc')}</h5>
             </div>
             <div>
               <a href="/login" className="loginButton">{t('Button.Login')}</a>

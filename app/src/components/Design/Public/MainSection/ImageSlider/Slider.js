@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
+import millify from 'millify';
 import { IoMdArrowRoundForward } from 'react-icons/io';
 import { IoArrowForward, IoArrowBack } from 'react-icons/io5';
+import { useTranslation } from 'react-i18next';
 import Anchor from '../../../Anchor/Anchor';
-
-import Button from '../../../Button/Button';
-import { SliderData } from './data/ImageSlider';
+import useFetch from '../../../../../core/hooks/useFetch';
 import './Slider.css';
+import { ImmoRoutes } from '../../../../../core/routing';
 
 function Slider() {
+  const { t } = useTranslation();
   const [House, setHouse] = useState(0);
+  const { data: properties } = useFetch('/immo');
   const length = 3;
 
   const nextSlide = () => {
@@ -20,19 +23,19 @@ function Slider() {
   };
   return (
     <div className="mainWrapper">
-      {SliderData.map((slide, index) => (
+      {properties?.map((slide, index) => (
         <div className="mainSlide" id={index}>
           {index === House && (
           <div className="mainSlider">
             <img className="mainImage" alt={slide.alt} src={slide.image}></img>
             <div className="mainContent">
               <h1>{slide.title}</h1>
-              <p>{slide.prijs}</p>
+              <p>{millify(slide.price)}</p>
               <Anchor
                 color="primary"
-                href={slide.path}
+                href={ImmoRoutes.Search}
               >
-                {slide.label}
+                {t('Button.Search')}
                 <IoMdArrowRoundForward className="arrowDetails" />
               </Anchor>
             </div>

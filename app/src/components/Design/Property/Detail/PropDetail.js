@@ -7,7 +7,6 @@ import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import useMutation from '../../../../core/hooks/useMutation';
 import useFetch from '../../../../core/hooks/useFetch';
 import imageOne from '../../Public/MainSection/ImageSlider/data/images/house-1.jpg';
-import Button from '../../Button/Button';
 import '../Property.css';
 
 import useTitle from '../../../../core/hooks/useTitle';
@@ -64,7 +63,7 @@ function PropDetail() {
             </span>
           </div>
           <div>
-            {role === 'USER' || role === 'IMMO' || role === 'ADMIN' ? property?.adress : <Anchor color="secondary" href="/login">Log in to see the adress</Anchor>}
+            {role === 'USER' || role === 'IMMO' || role === 'ADMIN' ? property?.adress : <Anchor color="secondary" href="/login">{t('Button.SeeAdress')}</Anchor>}
           </div>
           <div className="cardRooms">
             {property?.amountBedrooms}

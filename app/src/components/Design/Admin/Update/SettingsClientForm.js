@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import * as yup from 'yup';
+import { useTranslation } from 'react-i18next';
 import useFetch from '../../../../core/hooks/useFetch';
 import useForm from '../../../../core/hooks/useForm';
 import useMutation from '../../../../core/hooks/useMutation';
@@ -23,6 +24,7 @@ function SettingsClientForm() {
   // Standard Variables
   const { id } = useParams();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   // Fetches & Mutations
   const { isLoading, error, mutate } = useMutation();
@@ -57,7 +59,7 @@ function SettingsClientForm() {
     <div className="formContainer">
       <form onSubmit={handleSubmit(handleData)}>
         {error && <Alert color="danger">{error}</Alert>}
-        <Label htmlFor="name">Name</Label>
+        <Label htmlFor="name">{t('Form.Name')}</Label>
         <Input
           type="text"
           id="name"
@@ -69,7 +71,7 @@ function SettingsClientForm() {
           onChange={handleChange}
         />
 
-        <Label htmlFor="contactName">Contact Name</Label>
+        <Label htmlFor="contactName">{t('Form.ContactName')}</Label>
         <Input
           type="text"
           id="contactName"
@@ -81,7 +83,7 @@ function SettingsClientForm() {
           onChange={handleChange}
         />
 
-        <Label htmlFor="email">Email</Label>
+        <Label htmlFor="email">{t('Form.Email')}</Label>
         <Input
           type="email"
           id="email"
@@ -93,7 +95,7 @@ function SettingsClientForm() {
           onChange={handleChange}
         />
 
-        <Label htmlFor="password">Password</Label>
+        <Label htmlFor="password">{t('Form.Password')}</Label>
         <Input
           type="password"
           id="password"
@@ -105,7 +107,7 @@ function SettingsClientForm() {
           onChange={handleChange}
         />
 
-        <Button type="submit" disabled={isLoading}>Save</Button>
+        <Button type="submit" disabled={isLoading}>{t('Button.Save')}</Button>
       </form>
 
     </div>

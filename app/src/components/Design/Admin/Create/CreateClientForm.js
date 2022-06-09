@@ -1,8 +1,10 @@
 import React from 'react';
 import * as yup from 'yup';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import useForm from '../../../../core/hooks/useForm';
 import useMutation from '../../../../core/hooks/useMutation';
+import useTitle from '../../../../core/hooks/useTitle';
 import { AdminRoutes } from '../../../../core/routing';
 import Button from '../../Button/Button';
 import Label from '../../Form/Label';
@@ -25,8 +27,11 @@ const defaultData = {
 };
 
 function CreateClientForm() {
+  const { t } = useTranslation();
+  useTitle(t('Titles.AddClient'));
   const { isLoading, error, mutate } = useMutation();
   const navigate = useNavigate();
+
   const handleData = (data) => {
     mutate(`${process.env.REACT_APP_API_URL}/admin`, {
       method: 'POST',
@@ -45,7 +50,7 @@ function CreateClientForm() {
     <div className="formContainer">
       <form onSubmit={handleSubmit(handleData)} noValidate>
         {error && <Alert color="danger">{error}</Alert>}
-        <Label htmlFor="name">Name</Label>
+        <Label htmlFor="name">{t('Form.Name')}</Label>
         <Input
           type="text"
           id="name"
@@ -57,7 +62,7 @@ function CreateClientForm() {
           onChange={handleChange}
         />
 
-        <Label htmlFor="contactName">Contact Name</Label>
+        <Label htmlFor="contactName">{t('Form.ContactName')}</Label>
         <Input
           type="text"
           id="contactName"
@@ -69,7 +74,7 @@ function CreateClientForm() {
           onChange={handleChange}
         />
 
-        <Label htmlFor="email">Email</Label>
+        <Label htmlFor="email">{t('Form.Email')}</Label>
         <Input
           type="email"
           id="email"
@@ -81,7 +86,7 @@ function CreateClientForm() {
           onChange={handleChange}
         />
 
-        <Label htmlFor="password">Password</Label>
+        <Label htmlFor="password">{t('Form.Password')}</Label>
         <Input
           type="password"
           id="password"
@@ -93,7 +98,7 @@ function CreateClientForm() {
           onChange={handleChange}
         />
 
-        <Button type="submit" disabled={isLoading}>Add</Button>
+        <Button type="submit" disabled={isLoading}>{t('Button.Add')}</Button>
       </form>
     </div>
   );

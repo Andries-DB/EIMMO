@@ -27,14 +27,12 @@ function App() {
     <AuthProvider>
       <Routes>
         {/* Login screen */ }
-
         <Route path={AuthRoutes.Login} element={<LoginScreen />} />
         <Route path={AuthRoutes.Register} element={<RegisterScreen />} />
         <Route
           path="*"
           element={<Navigate to={AuthRoutes.Login} />}
         />
-
         <Route
           element={(
             <AuthContainer>
