@@ -90,15 +90,3 @@ I've deployed the app with Heroku, the link is:
   Email: klant@klant.com
   Password: secret
 ```
-
-- Real Estage Agent
-```bash
-  Email: immo@immo.com
-  Password: secret
-```
-
-- Admin
-```bash
-  Email: admin@admin.com
-  Password: secret
-```
